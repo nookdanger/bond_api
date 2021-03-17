@@ -4,6 +4,13 @@ info:
   title: TEST2
 servers:
   - url: 'http://localhost:3000'
+  - url: http://example.com
+  - url: http://34.87.128.157:8080/api/app-to-app-confirmation/v1/deeplink/profile
+  - url: https://www.uat-inno.ktb.co.th/paotang/v1/customer/no-encrypt/acct-infomation/inquiry
+  - url: http://10.9.214.101:31104/tfr-adt/api/v1/transferNonOfp
+  - url: http://10.9.214.101:31103/tfr-adt/api/v1
+  - url: http://10.9.214.101:32301/internal
+  - url: https://ewalletsit.ktb:14543/EwalletWebService
 paths:
   /user:
     get:

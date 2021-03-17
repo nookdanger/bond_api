@@ -7,10 +7,10 @@ servers:
 paths:
   /user:
     get:
-      summary: 'Sample endpoint: Returns details about a particular user'
+      summary: 'ข้อมูลภาษี'
       operationId: listUser
       tags:
-        - user
+        - Tax
       parameters:
         - name: id
           in: query

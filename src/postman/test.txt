@@ -9,7 +9,7 @@ info:
     Contact Support:
      Name: Your name
   contact: {}
-host: 'http:'
+host: http:
 basePath: /
 schemes: []
 consumes:

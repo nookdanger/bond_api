@@ -2,13 +2,6 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: bond_api
-  description: >-
-    Enter description about your API here
-
-
-    Contact Support:
-     Name: Your name
-  contact: {}
 host: http:
 basePath: /
 schemes: []

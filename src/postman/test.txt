@@ -32,6 +32,24 @@ paths:
             type: array
             items:
               $ref: '#/definitions/User'
+  /test2:
+    get:
+      description: 'Sample endpoint: Returns details about a particular user'
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: userId
+          type: integer
+          required: true
+          description: ID of the user
+      responses:
+        '200':
+          description: 'Sample response: Details about a user by ID'
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
 definitions:
   User:
     type: object

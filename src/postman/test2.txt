@@ -12,61 +12,5668 @@ servers:
   - url: http://10.9.214.101:32301/internal
   - url: https://ewalletsit.ktb:14543/EwalletWebService
 paths:
-  /user:
-    get:
-      summary: 'Sample endpoint: Returns details about a particular user'
-      operationId: listUser
+  /portfolio/total/get:
+    post:
       tags:
-        - user
-      parameters:
-        - name: id
-          in: query
-          description: ID of the user
-          required: true
-          schema:
-            type: integer
-            format: int32
+      - Portfolio
+      summary: /bond/portfolio/total/get
+      operationId: /bond/portfolio/total/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1portfolio~1total~1getrequest'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                walletId: 006880089000624
+                thaiSymbol: string
+                bondType: string
+        required: true
       responses:
         '200':
-          description: 'Sample response: Details about a user by ID'
-          headers:
-            x-next:
-              description: A link to the next page of responses
-              schema:
-                type: string
+          description: OK
+          headers: {}
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/~1bond~1portfolio~1item~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /portfolio/items/get:
+    post:
+      tags:
+      - Portfolio
+      summary: /bond/portfolio/items/get
+      operationId: /bond/portfolio/items/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1portfolio~1items~1getrequest'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                walletId: 006880045118221
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1portfolio~1items~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /portfolio/transaction/get:
+    post:
+      tags:
+      - Portfolio
+      summary: /bond/portfolio/transaction/get
+      operationId: /bond/portfolio/transaction/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1portfolio~1transaction~1getrequest'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                walletId: 006880043088764
+                pageNo: 1
+                pageSize: 10
+                transactionType: BUY
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1portfolio~1transaction~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /portfolio/statement/get:
+    post:
+      tags:
+      - Portfolio
+      summary: /bond/portfolio/statement/get
+      operationId: /bond/portfolio/statement/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1portfolio~1statement~1getrequest'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                walletId: 006880043088764
+                thaiSymbol: SB245A
+                pageNo: 1
+                pageSize: 10
+                transactionType: BUY
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1portfolio~1statement~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /transaction/other/tab/get:
+    post:
+      tags:
+      - Portfolio
+      summary: /bond/portfolio/transaction/other/tab/get
+      operationId: /bond/portfolio/transaction/other/tab/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1portfolio~1transaction~1other~1tab~1getrequest'
+            example:
+              content:
+                transactionType: OTH
+                walletId: 006880067937482
+                pageNo: 1
+                pageSize: 10
+                userId: 0852333531
+                uuId: 2623e7d4-83a3-40e2-ad7f-183378afda20
+                appId: ro6zNz6fMtjM72ziGJtaVoHhXc4PfJouumrsg7vbWk8EqxVLxChljkwT6
+              headerReq:
+                ip: 1.216.140.10,,10.140.216.57,70:8F:47:46:D7:7D
+                reqBy: 0852333531
+                cardNo: ''
+                reqID: e5KNKVv6lMYpR3CxOBzQ
+                sofType: PM
+                service: GetBondTransactionOtherTabService
+                reqChannel: PTANDROID
+                reqDtm: 2020-12-04 11:51:37.026
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /portfolio/statement/other/tab/get:
+    post:
+      tags:
+      - Portfolio
+      summary: /bond/portfolio/statement/other/tab/get
+      operationId: /bond/portfolio/statement/other/tab/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1portfolio~1statement~1other~1tab~1getrequest'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                walletId: 006880032163974
+                thaiSymbol: ABPSPV214A
+                pageNo: 1
+                pageSize: 10
+                transactionType: BUY
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /info/items/primary-mkt/get:
+    post:
+      tags:
+      - Info
+      summary: /bond/items/primary-mkt/get
+      description: T1
+      operationId: /bond/items/primary-mkt/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1items~1primary-mkt~1get-request'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                search: ''
+                sort: interest
+                pageNo: 1
+                pageSize: 10
+                walletId: 006880024559056
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1items~1primary-mkt~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /info/items/secondary-mkt/get:
+    post:
+      tags:
+      - Info
+      summary: /bond/items/secondary-mkt/get
+      description: T1
+      operationId: /bond/items/secondary-mkt/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1items~1secondary-mkt~1get-request'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                search: ''
+                sort: " 'startDate' or  'interest' "
+                pageNo: 1
+                pageSize: 10
+                walletId: 006880024559056
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1items~1secondary-mkt~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /info/agreement/content/get:
+    post:
+      tags:
+      - Info
+      summary: /bond/agreement/content/get
+      operationId: /bond/agreement/content/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1agreement~1content~1getrequest'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                thaiSymbol: ''
+                sellingCriteriaId: '142'
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1agreement~1content~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /info/interest/content/get:
+    post:
+      tags:
+      - Info
+      summary: /bond/interest/content/get
+      operationId: /bond/interest/content/get
+      parameters:
+      - name: Cookie
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: dtCookie=7258504686273851F2921C5BF1022C45|1|2||1
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1interest~1content~1getrequest'
+            example:
+              headerReq:
+                sofType: PM
+                reqID: i4Ee4jav80oB7Pae20fy
+                reqBy: 0891142100
+                reqChannel: PTIOS
+                cardNo: '880061451290'
+                reqDtm: 2020-09-21 10:57:27.255
+                service: BondInfoContentGet
+                txnRefID: '1234'
+                ip: 10.226.114.10,10.103.182.103,fe80::1462:8fcd:4675:a31a%en0,192.168.1.36,fe80::f8d7:a8ff:febc:4df6%awdl0,fe80::8da:6121:1bd7:bb13%en2,169.254.220.220,fe80::a89f:6167:33d3:c15d%utun0,fe80::c3d9:828c:66dc:d0ee%utun1,fe80::e9e7:155:e9e2:d038%utun2,fe80::650b:f0db:1752:124e%utun3,10.103.182.103,10.103.182.103
+              content:
+                appId: appId
+                uuId: uuId
+                userId: userId
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /buying/primary-mkt/confirm:
+    post:
+      tags:
+      - Buying/Sale
+      summary: /bond/buying/primary-mkt/confirm
+      operationId: /bond/buying/primary-mkt/confirm
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1buying~1primary-mkt~1confirm-request'
+            example:
+              thaiSymbol: string
+              sellingCriteriaId: 1
+              amount: 1000
+              bondUnit: 1000
+              fromWalletId: xxxxxxxx
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1buying~1primary-mkt~1confirm'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /buying/secondary-mkt/confirm:
+    post:
+      tags:
+      - Buying/Sale
+      summary: /bond/buying/secondary-mkt/confirm
+      operationId: /bond/buying/secondary-mkt/confirm
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1buying~1secondary-mkt~1confirm-request'
+            example:
+              fromWalletId: xxxxxxx
+              mmWalletId: string
+              bondUnit: 1000
+              mmCode: KTB
+              offerPrice: 19
+              refPricingNo: string
+              thaiSymbol: ''
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1buying~1confirm'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /selling/secondary-mkt/confirm:
+    post:
+      tags:
+      - Buying/Sale
+      summary: /bond/selling/secondary-mkt/confirm
+      operationId: /bond/selling/secondary-mkt/confirm
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1selling~1secondary-mkt~1confirm-request'
+            example:
+              headerReq:
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                reqBy: 0850669997
+                sofType: ''
+                service: SellBondConfirmService
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-06-06 14:59:29.056
+                cardNo: ''
+              content:
+                uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+                userId: 0850669997
+                appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+                thaiSymbol: SB245A
+                mmWalletId: 006880063916621
+                bondUnit: 100
+                bidPrice: 102
+                mmCode: mm03
+                fromWalletId: '234234'
+                refPricingNo: '202008220002'
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1sale~1secondary-mkt~1confirm'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /wallet/profile/dipchip/inquiry/register:
+    post:
+      tags:
+      - dipchip
+      summary: /dipchip/inquiry/register
+      description: /dipchip/inquiry/register
+      operationId: /dipchip/inquiry/register
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1dipchip~1inquiry~1registerrequest'
+            example:
+              citizenId: '1234567891011'
+        required: true
+      responses:
         default:
-          description: Unexpected error
+          description: ''
+          headers: {}
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/~1dipchip~1inquiry~1register'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /risk-assessment/get:
+    post:
+      tags:
+      - Risk
+      summary: /bond/risk-assessment/get
+      operationId: /bond/risk-assessment/get
+      parameters:
+      - name: Cookie
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: JSESSIONID=4ED6E3240AB3D4FA9A1BDBEBE1EC9A00
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1risk-assessment~1get-request'
+            example:
+              headerReq:
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                reqBy: 0850669997
+                sofType: ''
+                service: RiskAssessmentInquiryService
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-08-04 12:48:29.056
+                cardNo: ''
+                txnRefID: ''
+              content:
+                uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+                userId: 0850669997
+                appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+                cardType: I
+                cardId: '3102102067970'
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1risk-assessment~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /risk-assessment/submit:
+    post:
+      tags:
+      - Risk
+      summary: /bond/risk-assessment/submit
+      operationId: /bond/risk-assessment/submit
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1risk-assessment~1submit-request'
+            example:
+              headerReq:
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                reqBy: 0850669997
+                sofType: ''
+                service: RiskAssessmentSubmmitService
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-06-06 14:59:29.056
+                cardNo: ''
+              content:
+                uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+                userId: 0850669997
+                appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+                transType: 2
+                branchCode: '0'
+                cardType: I
+                cardId: '3102102067970'
+                ageScore1: 3
+                educationScore2: 3
+                experienceScore3: 3
+                periodScore4: 2
+                costScore5: 3
+                ratioScore6: 3
+                attitudeScore7: 3
+                riskScore8: 3
+                inflationScore9: 3
+                lossScore10: 3
+                riskProfileDate: 20200916 06:45:41
+                birthDate: ''
+                exchangeRateFlag: Y
+                teller: ''
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1risk-assessment~1submit'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /risk-assessment/confirm:
+    post:
+      tags:
+      - Risk
+      summary: /bond/risk-assessment/confirm
+      operationId: /bond/risk-assessment/confirm
+      parameters:
+      - name: Cookie
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: JSESSIONID=4ED6E3240AB3D4FA9A1BDBEBE1EC9A00
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1risk-assessment~1confirm-request'
+            example:
+              headerReq:
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                reqBy: 0850669997
+                sofType: ''
+                service: RiskAssessmentConfirmService
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-06-06 14:59:29.056
+                cardNo: ''
+              content:
+                uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+                userId: 0850669997
+                appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+                refId: 245907905358
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1risk-assessment~1confirm'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /auto-pay/info/get:
+    post:
+      tags:
+      - AutoPay
+      summary: /bond/auto-pay/info/get
+      operationId: /bond/auto-pay/info/get
+      parameters:
+      - name: Cookie
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          type: string
+          example: JSESSIONID=4ED6E3240AB3D4FA9A1BDBEBE1EC9A00
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1auto-pay~1info~1get-request'
+            example:
+              headerReq:
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                reqBy: 0850669997
+                sofType: ''
+                service: RiskAssessmentConfirmService
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-06-06 14:59:29.056
+                cardNo: ''
+              content:
+                uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+                userId: 0850669997
+                appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+                walletId: 006880050163377
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1auto-pay~1info~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /fatca/get:
+    post:
+      tags:
+      - Fatca
+      summary: /bond/fatca/get
+      operationId: /bond/fatca/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1fatca~1getrequest'
+            example:
+              headerReq:
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                reqBy: 0850669997
+                sofType: PM
+                service: FatcaInquiryService
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-08-04 12:48:29.056
+                cardNo: 0000551996
+                txnRefID: xxxx
+              content:
+                uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+                userId: 0850669997
+                appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+                citizenId: '3000000001761'
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1fatca~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /investor/profile/info/get:
+    post:
+      tags:
+      - Get-MobileNumber-bond
+      summary: /bond/info/get
+      operationId: /bond/info/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1info~1getrequest'
+            example:
+              headerReq:
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                reqBy: 0850669997
+                sofType: PM
+                service: FatcaInquiryService
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-08-04 12:48:29.056
+                cardNo: 0000551996
+                txnRefID: xxxx
+              content:
+                uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+                userId: 0850669997
+                appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+                citizenId: '3000000001761'
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1info~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /wallet/profile/lookup:
+    post:
+      tags:
+      - Upgrade
+      summary: /wallet/profile/lookup
+      description: /dipchip/inquiry/register
+      operationId: /wallet/profile/lookup
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1wallet~1profile~1lookuprequest'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                citizenId: '1234567891011'
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1wallet~1profile~1lookup'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /api-open-wallet/get-sequence/id:
+    post:
+      tags:
+      - Upgrade
+      summary: /api-open-wallet/get-sequence/id
+      description: /dipchip/inquiry/register
+      operationId: /api-open-wallet/get-sequence/id
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1api-open-wallet~1get-sequence~1id-request'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                citizenId: '1234567891011'
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1api-open-wallet~1get-sequence~1id'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /api-open-wallet/upgrade/submit:
+    post:
+      tags:
+      - Upgrade
+      summary: /api-open-wallet/upgrade/submit
+      description: /dipchip/inquiry/register
+      operationId: /api-open-wallet/upgrade/submit
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1api-open-wallet~1upgrade~1submit-request'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                requestId: string
+                citizenId: x-xxx-xxxxxxx
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1api-open-wallet~1get-sequence~1id1'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /api-open-wallet/upgrade/state/get:
+    post:
+      tags:
+      - Upgrade
+      summary: /api-open-wallet/upgrade/state/get
+      description: /dipchip/inquiry/register
+      operationId: /api-open-wallet/upgrade/state/get
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1api-open-wallet~1upgrade~1state~1get-request'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                citizenId: '1234567891011'
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1api-open-wallet~1upgrade~1state~1get'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /://10.9.214.101:32300/paotang/v1/wallet/no-encrypt/connect-next/get/deeplink:
+    post:
+      tags:
+      - deeplink
+      summary: /get/deeplink
+      operationId: /get/deeplink
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1get~1deeplinkrequest'
+            example:
+              headerReq:
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-09-14 11:00:00.056
+                reqBy: 0850669997
+                service: DeeplinkNextService
+                txnRefID: xxxx
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                sofType: PM
+              content:
+                partnerDeeplinkUrl: paotanguat://paotang.co.th/next.register?
+        required: true
+      responses:
+        default:
+          description: ''
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1get~1deeplink'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /connect-next/get/deeplink/info:
+    post:
+      tags:
+      - deeplink
+      summary: /get/deeplink/info
+      operationId: /get/deeplink/info
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1get~1deeplink~1inforequest'
+            example:
+              headerReq:
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-09-14 11:00:00.056
+                reqBy: 0850669997
+                service: DeeplinkNextInfoService
+                txnRefID: xxxx
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                sofType: PM
+              content:
+                deeplinkToken: xxx
+                transactionToken: xxx
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '254'
+            Cache-Control:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache
+            Expires:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '0'
+            X-Content-Type-Options:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: nosniff
+            X-Frame-Options:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: DENY
+            Content-Security-Policy:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/
+            Referrer-Policy:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-referrer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1get~1deeplink~1info'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /confirmation:
+    post:
+      tags:
+      - deeplink
+      summary: /app-to-app-confirmation/v1/deeplink/profile/confirmation
+      operationId: /app-to-app-confirmation/v1/deeplink/profile/confirmation
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1app-to-app-confirmation~1v1~1deeplink~1profile~1confirmation-request'
+            example:
+              deeplinkToken: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJwYW90YW5nIiwiZGVlcGxpbmtJZCI6IjI3Y2FjOTdmLTUxNDEtNDQyZC04NGJlLTYwYjRkMGYxMGY2YS1kZWVwIiwiZXhwIjoxNjA0NjUwMjQwLCJpYXQiOjE2MDQ2NDk5NDAsImlzcyI6IktydW5ndGhhaU5FWFQiLCJwYXJ0bmVyIjoicGFvdGFuZyIsInN1YiI6IkdFVF9QUk9GSUxFX1ZJRVdfQUNDT1VOVCJ9.IUoDOa3OZiDLNYbZK2wewpBSBKOJa5MLG8kW5u2rU1OhnQQNpNojxld2U5D0JWcvkDmgFIZIbeNR1uNyMAG7_G-lVGOFi2AhtHBMEg6XNiT8FIXiWfJdrh603f3V3LEfbvbod8NBeT1qHXmqWKfrVig5H6T31CZYh0L1-fihTDQ
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://34.87.128.157:8080/api/app-to-app-confirmation/v1/deeplink/profile
+        variables: {}
+  /bond/admin/transfer:
+    post:
+      tags:
+      - AdminTRF
+      summary: /bond/admin/transfer
+      operationId: /bond/admin/transfer
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1bond~1admin~1transferrequest'
+            example:
+              headerReq:
+                ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+                reqBy: 0850669997
+                sofType: ''
+                service: SellBondConfirmService
+                reqID: hAdsJgb6ep9C7uMzt8nc
+                reqChannel: PTIOS
+                reqDtm: 2020-06-06 14:59:29.056
+                cardNo: ''
+              content:
+                uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+                userId: 0850669997
+                appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+                thaiSymbol: SB245A
+                mmWalletId: 006880063916621
+                bondUnit: 100
+                bidPrice: 102
+                mmCode: mm03
+                fromWalletId: '234234'
+                refPricingNo: '202008220002'
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1bond~1sale~1secondary-mkt~1confirm1'
+      deprecated: false
+      servers:
+      - url: http://example.com
+        variables: {}
+  /account-detail:
+    post:
+      tags:
+      - Acct-information
+      summary: /inquiry/account-detail
+      operationId: /inquiry/account-detail
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1inquiry~1account-detail-request'
+            example:
+              headerReq:
+                reqID: ''
+                reqChannel: ''
+                reqDtm: ''
+                reqBy: ''
+                service: ''
+                txnRefID: ''
+                ip: ''
+                sofType: ''
+              content:
+                accountList:
+                - accountNo: '6700211034'
+        required: true
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '2191'
+            Cache-Control:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache, no-store, max-age=0, must-revalidate
+            Pragma:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-cache
+            Expires:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: '0'
+            X-Content-Type-Options:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: nosniff
+            X-Frame-Options:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: DENY
+            Content-Security-Policy:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: script-src 'self' https://trustedscripts.example.com; object-src https://trustedplugins.example.com; report-uri /csp-report-endpoint/
+            Referrer-Policy:
+              content:
+                text/plain:
+                  schema:
+                    type: string
+                  example: no-referrer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/~1inquiry~1account-detail'
+      deprecated: false
+      servers:
+      - url: https://www.uat-inno.ktb.co.th/paotang/v1/customer/no-encrypt/acct-infomation/inquiry
+        variables: {}
+  /deposit:
+    post:
+      tags:
+      - Transfer adapter
+      summary: /tfr-adt/api/v1/transferNonOfp/deposit
+      operationId: /tfr-adt/api/v1/transferNonOfp/deposit
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1tfr-adt~1api~1v1~1transferNonOfp~1deposit-Request'
+            example:
+              fromAcctID: '16508105'
+              fromAcctName: MM Wallet KTB2
+              fromAcctType: ''
+              toAnyIdType: ''
+              toAnyId: ''
+              toDisplayName: MM Wallet KTB2
+              toAcctName: MM Wallet KTB2
+              toAcctID: ''
+              toWalletID: 006880090311754
+              bankCd: ''
+              switchFeeAmt: ''
+              toBankFeeAmt: ''
+              customerFeeAmt: '0'
+              retrievalRefNo: '771673737284'
+              availBalAmt: '19922685.18'
+              amount: '248498.82'
+              ledgerAmt: '-77314.82'
+              productCategory: DDA
+              debitTrnTyp: ''
+              creditMaxBal: ''
+              glIndicator: '16508105'
+              reqDtm: 2020-12-02T10:33:39.620241151Z
+              effDt: '20201202'
+              locationCD: '1'
+              termID: '80'
+              panID: ''
+              transTime: 10:33:39
+              transType: '12'
+              termType: '12'
+              channelID: PT
+              overrideTransCode: BD5800000419
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://10.9.214.101:31104/tfr-adt/api/v1/transferNonOfp
+        variables: {}
+  /lookupNonToOfp:
+    post:
+      tags:
+      - Transfer adapter
+      summary: /tfr-adt/api/v1/lookupNonToOfp
+      operationId: /tfr-adt/api/v1/lookupNonToOfp
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1tfr-adt~1api~1v1~1lookupNonToOfp-Request'
+            example:
+              fromBankCode: ''
+              fromAcctID: '16508105'
+              toWalletID: 006880090311754
+              amount: '248498.82'
+              reqDtm: 2020-12-02T10:33:37.401795058Z
+              retrievalRefNo: '771673737284'
+              glIndicator: '16508105'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://10.9.214.101:31103/tfr-adt/api/v1
+        variables: {}
+  /v1/financial/transfer-pdmoadmin/od/transfer:
+    post:
+      tags:
+      - Transfer adapter
+      summary: /internal/v1/financial/transfer-pdmoadmin/od/transfer
+      operationId: /internal/v1/financial/transfer-pdmoadmin/od/transfer
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1internal~1v1~1financial~1transfer-pdmoadmin~1od~1transfer-request'
+            example:
+              mmWalletID: 006880090311754
+              transferInAccountType: GL
+              transferInBankCode: 006
+              transferInAccountNo: '16508105'
+              transferOutAccountType: GL
+              transferOutBankCode: 006
+              transferOutAccountNo: '16508105'
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://10.9.214.101:32301/internal
+        variables: {}
+  /sit/financial/transfer-pdmoadmin/transferAdminWalletToCasa:
+    post:
+      tags:
+      - Transfer adapter
+      summary: /internal/sit/financial/transfer-pdmoadmin/transferAdminWalletToCasa
+      operationId: /internal/sit/financial/transfer-pdmoadmin/transferAdminWalletToCasa
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1internal~1sit~1financial~1transfer-pdmoadmin~1transferAdminWalletToCasa-Request'
+            example:
+              requestId: '202012016164358'
+              amount: 1343.16
+              transferType: WALLET_CASA
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: http://10.9.214.101:32301/internal
+        variables: {}
+  /InquiryEwalletByWalletID:
+    post:
+      tags:
+      - EMS
+      summary: /EwalletWebService/InquiryEwalletByWalletID
+      operationId: /EwalletWebService/InquiryEwalletByWalletID
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/~1EwalletWebService~1InquiryEwalletByWalletIDRequest'
+            example:
+              inquiryEwalletByWalletIDReqHeader:
+                channelId: BD
+                refId: 337-6339dfff-d80a-4c19-9f5f-325c2d1f3500
+                requestDate: '20201202'
+                requestTime: 10:55:23
+              walletID: 006880048745012
+              inqrecvAccount: ''
+              termType: ''
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      servers:
+      - url: https://ewalletsit.ktb:14543/EwalletWebService
+        variables: {}
 components:
   schemas:
-    User:
-      type: object
+    /bond/portfolio/total/getrequest:
+      title: /bond/portfolio/total/getrequest
       required:
-        - id
-        - name
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        tag:
-          type: string
-    Error:
+      - headerReq
+      - content
       type: object
-      required:
-        - code
-        - message
       properties:
-        code:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          walletId: 006880089000624
+          thaiSymbol: string
+          bondType: string
+    HeaderReq:
+      title: HeaderReq
+      required:
+      - reqID
+      - reqChannel
+      - reqDtm
+      - reqBy
+      - service
+      - txnRefID
+      - ip
+      - sofType
+      type: object
+      properties:
+        reqID:
+          type: string
+        reqChannel:
+          type: string
+        reqDtm:
+          type: string
+        reqBy:
+          type: string
+        service:
+          type: string
+        txnRefID:
+          type: string
+        ip:
+          type: string
+        sofType:
+          type: string
+      example:
+        reqID: ''
+        reqChannel: ''
+        reqDtm: ''
+        reqBy: ''
+        service: ''
+        txnRefID: ''
+        ip: ''
+        sofType: ''
+    Content:
+      title: Content
+      required:
+      - walletId
+      - thaiSymbol
+      - bondType
+      type: object
+      properties:
+        walletId:
+          type: string
+        thaiSymbol:
+          type: string
+        bondType:
+          type: string
+      example:
+        walletId: 006880089000624
+        thaiSymbol: string
+        bondType: string
+    /bond/portfolio/item/get:
+      title: /bond/portfolio/item/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content1'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          totalValue: 80000
+          totalUnit: 8000
+    HeaderResp:
+      title: HeaderResp
+      required:
+      - statusCd
+      - statusDesc
+      type: object
+      properties:
+        statusCd:
+          type: string
+        statusDesc:
+          type: string
+      example:
+        statusCd: 0000
+        statusDesc: SUCCESS
+    Content1:
+      title: Content1
+      required:
+      - totalValue
+      - totalUnit
+      type: object
+      properties:
+        totalValue:
           type: integer
           format: int32
-        message:
+        totalUnit:
+          type: integer
+          format: int32
+      example:
+        totalValue: 80000
+        totalUnit: 8000
+    /bond/portfolio/items/getrequest:
+      title: /bond/portfolio/items/getrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content2'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          walletId: 006880045118221
+    Content2:
+      title: Content2
+      required:
+      - walletId
+      type: object
+      properties:
+        walletId:
           type: string
+      example:
+        walletId: 006880045118221
+    /bond/portfolio/items/get:
+      title: /bond/portfolio/items/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content3'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          totalValue: 80000
+          items:
+          - thaiSymbol: String
+            bondGroupName: String
+            bondValue: 100
+            interest: 1.75
+            maturityDate: String
+            holdingAmount: 100
+            parValue: 1
+            saleStartDate: String
+            saleEndDate: String
+    Content3:
+      title: Content3
+      required:
+      - totalValue
+      - items
+      type: object
+      properties:
+        totalValue:
+          type: integer
+          format: int32
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item'
+          description: ''
+      example:
+        totalValue: 80000
+        items:
+        - thaiSymbol: String
+          bondGroupName: String
+          bondValue: 100
+          interest: 1.75
+          maturityDate: String
+          holdingAmount: 100
+          parValue: 1
+          saleStartDate: String
+          saleEndDate: String
+    Item:
+      title: Item
+      required:
+      - thaiSymbol
+      - bondGroupName
+      - bondValue
+      - interest
+      - maturityDate
+      - holdingAmount
+      - parValue
+      - saleStartDate
+      - saleEndDate
+      type: object
+      properties:
+        thaiSymbol:
+          type: string
+        bondGroupName:
+          type: string
+        bondValue:
+          type: integer
+          format: int32
+        interest:
+          type: number
+        maturityDate:
+          type: string
+        holdingAmount:
+          type: integer
+          format: int32
+        parValue:
+          type: integer
+          format: int32
+        saleStartDate:
+          type: string
+        saleEndDate:
+          type: string
+      example:
+        thaiSymbol: String
+        bondGroupName: String
+        bondValue: 100
+        interest: 1.75
+        maturityDate: String
+        holdingAmount: 100
+        parValue: 1
+        saleStartDate: String
+        saleEndDate: String
+    /bond/portfolio/transaction/getrequest:
+      title: /bond/portfolio/transaction/getrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content4'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          walletId: 006880043088764
+          pageNo: 1
+          pageSize: 10
+          transactionType: BUY
+    Content4:
+      title: Content4
+      required:
+      - walletId
+      - pageNo
+      - pageSize
+      - transactionType
+      type: object
+      properties:
+        walletId:
+          type: string
+        pageNo:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        transactionType:
+          type: string
+      example:
+        walletId: 006880043088764
+        pageNo: 1
+        pageSize: 10
+        transactionType: BUY
+    /bond/portfolio/transaction/get:
+      title: /bond/portfolio/transaction/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content5'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          paging:
+            pageNo: 0
+            pageSize: 10
+            totalElements: 1
+          transactions:
+          - bondName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+            transactionAmount: 10000
+            bondUnit: 10000
+            transactionChannel: PT
+            transactionType: BYB
+            transactionTypeDesc: ซื้อพันธบัตร
+            transactionDate: 2020-02-03T11:04:36.91
+    Content5:
+      title: Content5
+      required:
+      - paging
+      - transactions
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        transactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Transaction'
+          description: ''
+      example:
+        paging:
+          pageNo: 0
+          pageSize: 10
+          totalElements: 1
+        transactions:
+        - bondName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+          transactionAmount: 10000
+          bondUnit: 10000
+          transactionChannel: PT
+          transactionType: BYB
+          transactionTypeDesc: ซื้อพันธบัตร
+          transactionDate: 2020-02-03T11:04:36.91
+    Paging:
+      title: Paging
+      required:
+      - pageNo
+      - pageSize
+      - totalElements
+      type: object
+      properties:
+        pageNo:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalElements:
+          type: integer
+          format: int32
+      example:
+        pageNo: 0
+        pageSize: 10
+        totalElements: 1
+    Transaction:
+      title: Transaction
+      required:
+      - bondName
+      - transactionAmount
+      - bondUnit
+      - transactionChannel
+      - transactionType
+      - transactionTypeDesc
+      - transactionDate
+      type: object
+      properties:
+        bondName:
+          type: string
+        transactionAmount:
+          type: integer
+          format: int32
+        bondUnit:
+          type: integer
+          format: int32
+        transactionChannel:
+          type: string
+        transactionType:
+          type: string
+        transactionTypeDesc:
+          type: string
+        transactionDate:
+          type: string
+      example:
+        bondName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+        transactionAmount: 10000
+        bondUnit: 10000
+        transactionChannel: PT
+        transactionType: BYB
+        transactionTypeDesc: ซื้อพันธบัตร
+        transactionDate: 2020-02-03T11:04:36.91
+    /bond/portfolio/statement/getrequest:
+      title: /bond/portfolio/statement/getrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content6'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          walletId: 006880043088764
+          thaiSymbol: SB245A
+          pageNo: 1
+          pageSize: 10
+          transactionType: BUY
+    Content6:
+      title: Content6
+      required:
+      - walletId
+      - thaiSymbol
+      - pageNo
+      - pageSize
+      - transactionType
+      type: object
+      properties:
+        walletId:
+          type: string
+        thaiSymbol:
+          type: string
+        pageNo:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        transactionType:
+          type: string
+      example:
+        walletId: 006880043088764
+        thaiSymbol: SB245A
+        pageNo: 1
+        pageSize: 10
+        transactionType: BUY
+    /bond/portfolio/statement/get:
+      title: /bond/portfolio/statement/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content7'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          paging:
+            pageNo: 0
+            pageSize: 10
+            totalElements: 1
+          statements:
+          - bondName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+            transactionAmount: 10000
+            bondUnit: 10000
+            transactionChannel: PT
+            transactionType: BYB
+            transactionTypeDesc: ซื้อพันธบัตร
+            transactionDate: 2020-02-03T11:04:36.91
+    Content7:
+      title: Content7
+      required:
+      - paging
+      - statements
+      type: object
+      properties:
+        paging:
+          $ref: '#/components/schemas/Paging'
+        statements:
+          type: array
+          items:
+            $ref: '#/components/schemas/Statement'
+          description: ''
+      example:
+        paging:
+          pageNo: 0
+          pageSize: 10
+          totalElements: 1
+        statements:
+        - bondName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+          transactionAmount: 10000
+          bondUnit: 10000
+          transactionChannel: PT
+          transactionType: BYB
+          transactionTypeDesc: ซื้อพันธบัตร
+          transactionDate: 2020-02-03T11:04:36.91
+    Statement:
+      title: Statement
+      required:
+      - bondName
+      - transactionAmount
+      - bondUnit
+      - transactionChannel
+      - transactionType
+      - transactionTypeDesc
+      - transactionDate
+      type: object
+      properties:
+        bondName:
+          type: string
+        transactionAmount:
+          type: integer
+          format: int32
+        bondUnit:
+          type: integer
+          format: int32
+        transactionChannel:
+          type: string
+        transactionType:
+          type: string
+        transactionTypeDesc:
+          type: string
+        transactionDate:
+          type: string
+      example:
+        bondName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+        transactionAmount: 10000
+        bondUnit: 10000
+        transactionChannel: PT
+        transactionType: BYB
+        transactionTypeDesc: ซื้อพันธบัตร
+        transactionDate: 2020-02-03T11:04:36.91
+    /bond/portfolio/transaction/other/tab/getrequest:
+      title: /bond/portfolio/transaction/other/tab/getrequest
+      required:
+      - content
+      - headerReq
+      type: object
+      properties:
+        content:
+          $ref: '#/components/schemas/Content8'
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq4'
+      example:
+        content:
+          transactionType: OTH
+          walletId: 006880067937482
+          pageNo: 1
+          pageSize: 10
+          userId: 0852333531
+          uuId: 2623e7d4-83a3-40e2-ad7f-183378afda20
+          appId: ro6zNz6fMtjM72ziGJtaVoHhXc4PfJouumrsg7vbWk8EqxVLxChljkwT6
+        headerReq:
+          ip: 1.216.140.10,,10.140.216.57,70:8F:47:46:D7:7D
+          reqBy: 0852333531
+          cardNo: ''
+          reqID: e5KNKVv6lMYpR3CxOBzQ
+          sofType: PM
+          service: GetBondTransactionOtherTabService
+          reqChannel: PTANDROID
+          reqDtm: 2020-12-04 11:51:37.026
+    Content8:
+      title: Content8
+      required:
+      - transactionType
+      - walletId
+      - pageNo
+      - pageSize
+      - userId
+      - uuId
+      - appId
+      type: object
+      properties:
+        transactionType:
+          type: string
+        walletId:
+          type: string
+        pageNo:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        userId:
+          type: string
+        uuId:
+          type: string
+        appId:
+          type: string
+      example:
+        transactionType: OTH
+        walletId: 006880067937482
+        pageNo: 1
+        pageSize: 10
+        userId: 0852333531
+        uuId: 2623e7d4-83a3-40e2-ad7f-183378afda20
+        appId: ro6zNz6fMtjM72ziGJtaVoHhXc4PfJouumrsg7vbWk8EqxVLxChljkwT6
+    HeaderReq4:
+      title: HeaderReq4
+      required:
+      - ip
+      - reqBy
+      - cardNo
+      - reqID
+      - sofType
+      - service
+      - reqChannel
+      - reqDtm
+      type: object
+      properties:
+        ip:
+          type: string
+        reqBy:
+          type: string
+        cardNo:
+          type: string
+        reqID:
+          type: string
+        sofType:
+          type: string
+        service:
+          type: string
+        reqChannel:
+          type: string
+        reqDtm:
+          type: string
+      example:
+        ip: 1.216.140.10,,10.140.216.57,70:8F:47:46:D7:7D
+        reqBy: 0852333531
+        cardNo: ''
+        reqID: e5KNKVv6lMYpR3CxOBzQ
+        sofType: PM
+        service: GetBondTransactionOtherTabService
+        reqChannel: PTANDROID
+        reqDtm: 2020-12-04 11:51:37.026
+    /bond/portfolio/statement/other/tab/getrequest:
+      title: /bond/portfolio/statement/other/tab/getrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content6'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          walletId: 006880032163974
+          thaiSymbol: ABPSPV214A
+          pageNo: 1
+          pageSize: 10
+          transactionType: BUY
+    /bond/items/primary-mkt/get-request:
+      title: /bond/items/primary-mkt/get-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content10'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          search: ''
+          sort: interest
+          pageNo: 1
+          pageSize: 10
+          walletId: 006880024559056
+    Content10:
+      title: Content10
+      required:
+      - search
+      - sort
+      - pageNo
+      - pageSize
+      - walletId
+      type: object
+      properties:
+        search:
+          type: string
+        sort:
+          type: string
+        pageNo:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        walletId:
+          type: string
+      example:
+        search: ''
+        sort: interest
+        pageNo: 1
+        pageSize: 10
+        walletId: 006880024559056
+    /bond/items/primary-mkt/get:
+      title: /bond/items/primary-mkt/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content11'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          items:
+          - status: O
+            thaiSymbol: T062303652
+            bondGroupName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+            interestRate: 1.75
+            startDate: 2020-06-01T08:30:00
+            endDate: 2020-06-01T08:30:00
+            parValue: 1
+            lowestLimitToBuy: 100
+            multipleToBuy: 100
+            prospectusLink: ''
+            knowBeforeBuyingLink: ''
+            maturityDate: 2020-01-29T00:00:00
+            sellingCriteriaId: 1
+            bondType: string
+            limitToBuy: Y
+    Content11:
+      title: Content11
+      required:
+      - items
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item1'
+          description: ''
+      example:
+        items:
+        - status: O
+          thaiSymbol: T062303652
+          bondGroupName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+          interestRate: 1.75
+          startDate: 2020-06-01T08:30:00
+          endDate: 2020-06-01T08:30:00
+          parValue: 1
+          lowestLimitToBuy: 100
+          multipleToBuy: 100
+          prospectusLink: ''
+          knowBeforeBuyingLink: ''
+          maturityDate: 2020-01-29T00:00:00
+          sellingCriteriaId: 1
+          bondType: string
+          limitToBuy: Y
+    Item1:
+      title: Item1
+      required:
+      - status
+      - thaiSymbol
+      - bondGroupName
+      - interestRate
+      - startDate
+      - endDate
+      - parValue
+      - lowestLimitToBuy
+      - multipleToBuy
+      - prospectusLink
+      - knowBeforeBuyingLink
+      - maturityDate
+      - sellingCriteriaId
+      - bondType
+      - limitToBuy
+      type: object
+      properties:
+        status:
+          type: string
+        thaiSymbol:
+          type: string
+        bondGroupName:
+          type: string
+        interestRate:
+          type: number
+        startDate:
+          type: string
+        endDate:
+          type: string
+        parValue:
+          type: integer
+          format: int32
+        lowestLimitToBuy:
+          type: integer
+          format: int32
+        multipleToBuy:
+          type: integer
+          format: int32
+        prospectusLink:
+          type: string
+        knowBeforeBuyingLink:
+          type: string
+        maturityDate:
+          type: string
+        sellingCriteriaId:
+          type: integer
+          format: int32
+        bondType:
+          type: string
+        limitToBuy:
+          type: string
+      example:
+        status: O
+        thaiSymbol: T062303652
+        bondGroupName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+        interestRate: 1.75
+        startDate: 2020-06-01T08:30:00
+        endDate: 2020-06-01T08:30:00
+        parValue: 1
+        lowestLimitToBuy: 100
+        multipleToBuy: 100
+        prospectusLink: ''
+        knowBeforeBuyingLink: ''
+        maturityDate: 2020-01-29T00:00:00
+        sellingCriteriaId: 1
+        bondType: string
+        limitToBuy: Y
+    /bond/items/secondary-mkt/get-request:
+      title: /bond/items/secondary-mkt/get-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content10'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          search: ''
+          sort: " 'startDate' or  'interest' "
+          pageNo: 1
+          pageSize: 10
+          walletId: 006880024559056
+    /bond/items/secondary-mkt/get:
+      title: /bond/items/secondary-mkt/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content13'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          items:
+          - bondGroupName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+            interestRate: 1.75
+            thaiSymbol: T062303652
+            marketingText: a
+            maturityDate: 2023-03-02
+            factSheet: string
+            parValue: 1
+            bondType: ''
+            prospectusLink: ''
+            priceList:
+            - multipleToBuy: 100
+              lowestLimitToBuy: 100
+              bidDirtyPrice: 1000.01
+              bidInventory: 10000000.01
+              bidYield: 1000.01
+              bidAccruedInterest: 1.7
+              bidCleanPrice: 1.7
+              cur: THB
+              cutoffTime: hh:mm:ss
+              mmCode: string
+              mmImageBase64: string
+              mmNameEn: string
+              mmNameTh: string
+              mmWalletId: string
+              offerDirtyPrice: 1000.01
+              offerInventory: 10000000.01
+              offerYield: 1000.01
+              offerAccruedInterest: 1.7
+              offerCleanPrice: 1.7
+              parValue: 1000.01
+              refPricingNo: string
+              settlementDate: DD/MM/YYYY
+    Content13:
+      title: Content13
+      required:
+      - items
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Item2'
+          description: ''
+      example:
+        items:
+        - bondGroupName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+          interestRate: 1.75
+          thaiSymbol: T062303652
+          marketingText: a
+          maturityDate: 2023-03-02
+          factSheet: string
+          parValue: 1
+          bondType: ''
+          prospectusLink: ''
+          priceList:
+          - multipleToBuy: 100
+            lowestLimitToBuy: 100
+            bidDirtyPrice: 1000.01
+            bidInventory: 10000000.01
+            bidYield: 1000.01
+            bidAccruedInterest: 1.7
+            bidCleanPrice: 1.7
+            cur: THB
+            cutoffTime: hh:mm:ss
+            mmCode: string
+            mmImageBase64: string
+            mmNameEn: string
+            mmNameTh: string
+            mmWalletId: string
+            offerDirtyPrice: 1000.01
+            offerInventory: 10000000.01
+            offerYield: 1000.01
+            offerAccruedInterest: 1.7
+            offerCleanPrice: 1.7
+            parValue: 1000.01
+            refPricingNo: string
+            settlementDate: DD/MM/YYYY
+    Item2:
+      title: Item2
+      required:
+      - bondGroupName
+      - interestRate
+      - thaiSymbol
+      - marketingText
+      - maturityDate
+      - factSheet
+      - parValue
+      - bondType
+      - prospectusLink
+      - priceList
+      type: object
+      properties:
+        bondGroupName:
+          type: string
+        interestRate:
+          type: number
+        thaiSymbol:
+          type: string
+        marketingText:
+          type: string
+        maturityDate:
+          type: string
+        factSheet:
+          type: string
+        parValue:
+          type: integer
+          format: int32
+        bondType:
+          type: string
+        prospectusLink:
+          type: string
+        priceList:
+          type: array
+          items:
+            $ref: '#/components/schemas/PriceList'
+          description: ''
+      example:
+        bondGroupName: พันธบัตรออมทรัพย์กระทรวงการคลัง ในปีงบประมาณ พ.ศ. 2563 ครั้งที่ 3
+        interestRate: 1.75
+        thaiSymbol: T062303652
+        marketingText: a
+        maturityDate: 2023-03-02
+        factSheet: string
+        parValue: 1
+        bondType: ''
+        prospectusLink: ''
+        priceList:
+        - multipleToBuy: 100
+          lowestLimitToBuy: 100
+          bidDirtyPrice: 1000.01
+          bidInventory: 10000000.01
+          bidYield: 1000.01
+          bidAccruedInterest: 1.7
+          bidCleanPrice: 1.7
+          cur: THB
+          cutoffTime: hh:mm:ss
+          mmCode: string
+          mmImageBase64: string
+          mmNameEn: string
+          mmNameTh: string
+          mmWalletId: string
+          offerDirtyPrice: 1000.01
+          offerInventory: 10000000.01
+          offerYield: 1000.01
+          offerAccruedInterest: 1.7
+          offerCleanPrice: 1.7
+          parValue: 1000.01
+          refPricingNo: string
+          settlementDate: DD/MM/YYYY
+    PriceList:
+      title: PriceList
+      required:
+      - multipleToBuy
+      - lowestLimitToBuy
+      - bidDirtyPrice
+      - bidInventory
+      - bidYield
+      - bidAccruedInterest
+      - bidCleanPrice
+      - cur
+      - cutoffTime
+      - mmCode
+      - mmImageBase64
+      - mmNameEn
+      - mmNameTh
+      - mmWalletId
+      - offerDirtyPrice
+      - offerInventory
+      - offerYield
+      - offerAccruedInterest
+      - offerCleanPrice
+      - parValue
+      - refPricingNo
+      - settlementDate
+      type: object
+      properties:
+        multipleToBuy:
+          type: integer
+          format: int32
+        lowestLimitToBuy:
+          type: integer
+          format: int32
+        bidDirtyPrice:
+          type: number
+        bidInventory:
+          type: number
+        bidYield:
+          type: number
+        bidAccruedInterest:
+          type: number
+        bidCleanPrice:
+          type: number
+        cur:
+          type: string
+        cutoffTime:
+          type: string
+        mmCode:
+          type: string
+        mmImageBase64:
+          type: string
+        mmNameEn:
+          type: string
+        mmNameTh:
+          type: string
+        mmWalletId:
+          type: string
+        offerDirtyPrice:
+          type: number
+        offerInventory:
+          type: number
+        offerYield:
+          type: number
+        offerAccruedInterest:
+          type: number
+        offerCleanPrice:
+          type: number
+        parValue:
+          type: number
+        refPricingNo:
+          type: string
+        settlementDate:
+          type: string
+      example:
+        multipleToBuy: 100
+        lowestLimitToBuy: 100
+        bidDirtyPrice: 1000.01
+        bidInventory: 10000000.01
+        bidYield: 1000.01
+        bidAccruedInterest: 1.7
+        bidCleanPrice: 1.7
+        cur: THB
+        cutoffTime: hh:mm:ss
+        mmCode: string
+        mmImageBase64: string
+        mmNameEn: string
+        mmNameTh: string
+        mmWalletId: string
+        offerDirtyPrice: 1000.01
+        offerInventory: 10000000.01
+        offerYield: 1000.01
+        offerAccruedInterest: 1.7
+        offerCleanPrice: 1.7
+        parValue: 1000.01
+        refPricingNo: string
+        settlementDate: DD/MM/YYYY
+    /bond/agreement/content/getrequest:
+      title: /bond/agreement/content/getrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content14'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          thaiSymbol: ''
+          sellingCriteriaId: '142'
+    Content14:
+      title: Content14
+      required:
+      - thaiSymbol
+      - sellingCriteriaId
+      type: object
+      properties:
+        thaiSymbol:
+          type: string
+        sellingCriteriaId:
+          type: string
+      example:
+        thaiSymbol: ''
+        sellingCriteriaId: '142'
+    /bond/agreement/content/get:
+      title: /bond/agreement/content/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content15'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          marketingText: ''
+          factSheet: ''
+    Content15:
+      title: Content15
+      required:
+      - marketingText
+      - factSheet
+      type: object
+      properties:
+        marketingText:
+          type: string
+        factSheet:
+          type: string
+      example:
+        marketingText: ''
+        factSheet: ''
+    /bond/interest/content/getrequest:
+      title: /bond/interest/content/getrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq9'
+        content:
+          $ref: '#/components/schemas/Content16'
+      example:
+        headerReq:
+          sofType: PM
+          reqID: i4Ee4jav80oB7Pae20fy
+          reqBy: 0891142100
+          reqChannel: PTIOS
+          cardNo: '880061451290'
+          reqDtm: 2020-09-21 10:57:27.255
+          service: BondInfoContentGet
+          txnRefID: '1234'
+          ip: 10.226.114.10,10.103.182.103,fe80::1462:8fcd:4675:a31a%en0,192.168.1.36,fe80::f8d7:a8ff:febc:4df6%awdl0,fe80::8da:6121:1bd7:bb13%en2,169.254.220.220,fe80::a89f:6167:33d3:c15d%utun0,fe80::c3d9:828c:66dc:d0ee%utun1,fe80::e9e7:155:e9e2:d038%utun2,fe80::650b:f0db:1752:124e%utun3,10.103.182.103,10.103.182.103
+        content:
+          appId: appId
+          uuId: uuId
+          userId: userId
+    HeaderReq9:
+      title: HeaderReq9
+      required:
+      - sofType
+      - reqID
+      - reqBy
+      - reqChannel
+      - cardNo
+      - reqDtm
+      - service
+      - txnRefID
+      - ip
+      type: object
+      properties:
+        sofType:
+          type: string
+        reqID:
+          type: string
+        reqBy:
+          type: string
+        reqChannel:
+          type: string
+        cardNo:
+          type: string
+        reqDtm:
+          type: string
+        service:
+          type: string
+        txnRefID:
+          type: string
+        ip:
+          type: string
+      example:
+        sofType: PM
+        reqID: i4Ee4jav80oB7Pae20fy
+        reqBy: 0891142100
+        reqChannel: PTIOS
+        cardNo: '880061451290'
+        reqDtm: 2020-09-21 10:57:27.255
+        service: BondInfoContentGet
+        txnRefID: '1234'
+        ip: 10.226.114.10,10.103.182.103,fe80::1462:8fcd:4675:a31a%en0,192.168.1.36,fe80::f8d7:a8ff:febc:4df6%awdl0,fe80::8da:6121:1bd7:bb13%en2,169.254.220.220,fe80::a89f:6167:33d3:c15d%utun0,fe80::c3d9:828c:66dc:d0ee%utun1,fe80::e9e7:155:e9e2:d038%utun2,fe80::650b:f0db:1752:124e%utun3,10.103.182.103,10.103.182.103
+    Content16:
+      title: Content16
+      required:
+      - appId
+      - uuId
+      - userId
+      type: object
+      properties:
+        appId:
+          type: string
+        uuId:
+          type: string
+        userId:
+          type: string
+      example:
+        appId: appId
+        uuId: uuId
+        userId: userId
+    /bond/buying/primary-mkt/confirm-request:
+      title: /bond/buying/primary-mkt/confirm-request
+      required:
+      - thaiSymbol
+      - sellingCriteriaId
+      - amount
+      - bondUnit
+      - fromWalletId
+      type: object
+      properties:
+        thaiSymbol:
+          type: string
+        sellingCriteriaId:
+          type: integer
+          format: int32
+        amount:
+          type: number
+        bondUnit:
+          type: integer
+          format: int32
+        fromWalletId:
+          type: string
+      example:
+        thaiSymbol: string
+        sellingCriteriaId: 1
+        amount: 1000
+        bondUnit: 1000
+        fromWalletId: xxxxxxxx
+    /bond/buying/primary-mkt/confirm:
+      title: /bond/buying/primary-mkt/confirm
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content17'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          issuerWalletName: PDMOAdminWallet
+          amount: 1000
+          bondUnitAmount: 1000
+          fee: 0
+          referenceCode: c1d936c3-0464-47f4-a993-460d470503a1
+          transactionDateTime: 2020-02-03T11:04:36.91
+          effectiveDate: 2020-02-03
+          citizenId: '1234567890123'
+          issuerWalletId: xxxxxx
+          referenceCodeAutoPay: xxxxx
+          amountAutoPayCasa: 2444.2
+          qrVerifySlipAutoPay: 23wradgsdhfh
+          transactionDateTimeAutoPay: 23:35:24
+          accountNoAutoPay: ssfsaf
+          accountDisplayAutoPay: dsd sd
+          amountAutoPayWallet: 2324.2
+          bondGroupName: bondNAme
+          fromWalletId: x-xxxxxxxx-xx
+    Content17:
+      title: Content17
+      required:
+      - issuerWalletName
+      - amount
+      - bondUnitAmount
+      - fee
+      - referenceCode
+      - transactionDateTime
+      - effectiveDate
+      - citizenId
+      - issuerWalletId
+      - referenceCodeAutoPay
+      - amountAutoPayCasa
+      - qrVerifySlipAutoPay
+      - transactionDateTimeAutoPay
+      - accountNoAutoPay
+      - accountDisplayAutoPay
+      - amountAutoPayWallet
+      - bondGroupName
+      - fromWalletId
+      type: object
+      properties:
+        issuerWalletName:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        bondUnitAmount:
+          type: integer
+          format: int32
+        fee:
+          type: integer
+          format: int32
+        referenceCode:
+          type: string
+        transactionDateTime:
+          type: string
+        effectiveDate:
+          type: string
+        citizenId:
+          type: string
+        issuerWalletId:
+          type: string
+        referenceCodeAutoPay:
+          type: string
+        amountAutoPayCasa:
+          type: number
+        qrVerifySlipAutoPay:
+          type: string
+        transactionDateTimeAutoPay:
+          type: string
+        accountNoAutoPay:
+          type: string
+        accountDisplayAutoPay:
+          type: string
+        amountAutoPayWallet:
+          type: number
+        bondGroupName:
+          type: string
+        fromWalletId:
+          type: string
+      example:
+        issuerWalletName: PDMOAdminWallet
+        amount: 1000
+        bondUnitAmount: 1000
+        fee: 0
+        referenceCode: c1d936c3-0464-47f4-a993-460d470503a1
+        transactionDateTime: 2020-02-03T11:04:36.91
+        effectiveDate: 2020-02-03
+        citizenId: '1234567890123'
+        issuerWalletId: xxxxxx
+        referenceCodeAutoPay: xxxxx
+        amountAutoPayCasa: 2444.2
+        qrVerifySlipAutoPay: 23wradgsdhfh
+        transactionDateTimeAutoPay: 23:35:24
+        accountNoAutoPay: ssfsaf
+        accountDisplayAutoPay: dsd sd
+        amountAutoPayWallet: 2324.2
+        bondGroupName: bondNAme
+        fromWalletId: x-xxxxxxxx-xx
+    /bond/buying/secondary-mkt/confirm-request:
+      title: /bond/buying/secondary-mkt/confirm-request
+      required:
+      - fromWalletId
+      - mmWalletId
+      - bondUnit
+      - mmCode
+      - offerPrice
+      - refPricingNo
+      - thaiSymbol
+      type: object
+      properties:
+        fromWalletId:
+          type: string
+        mmWalletId:
+          type: string
+        bondUnit:
+          type: integer
+          format: int32
+        mmCode:
+          type: string
+        offerPrice:
+          type: integer
+          format: int32
+        refPricingNo:
+          type: string
+        thaiSymbol:
+          type: string
+      example:
+        fromWalletId: xxxxxxx
+        mmWalletId: string
+        bondUnit: 1000
+        mmCode: KTB
+        offerPrice: 19
+        refPricingNo: string
+        thaiSymbol: ''
+    /bond/buying/confirm:
+      title: /bond/buying/confirm
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content18'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          mmWalletId: 006880089000624
+          amount: 10000
+          bondUnitAmount: 10
+          fee: 0
+          referenceCode: c1d936c3-0464-47f4-a993-460d470503a1
+          transactionDateTime: 2020-02-03T11:04:36.91
+          effective_date: 2020-02-03
+          citizenId: '1234567890123'
+          referenceCodeAutoPay: xxxxx
+          amountAutoPayCasa: 2444.2
+          qrVerifySlipAutoPay: 23wradgsdhfh
+          transactionDateTimeAutoPay: 23:35:24
+          accountNoAutoPay: ssfsaf
+          accountDisplayAutoPay: dsd sd
+          amountAutoPayWallet: 2324.2
+          fromWalletId: String
+          offerPrice: 1000
+    Content18:
+      title: Content18
+      required:
+      - mmWalletId
+      - amount
+      - bondUnitAmount
+      - fee
+      - referenceCode
+      - transactionDateTime
+      - effective_date
+      - citizenId
+      - referenceCodeAutoPay
+      - amountAutoPayCasa
+      - qrVerifySlipAutoPay
+      - transactionDateTimeAutoPay
+      - accountNoAutoPay
+      - accountDisplayAutoPay
+      - amountAutoPayWallet
+      - fromWalletId
+      - offerPrice
+      type: object
+      properties:
+        mmWalletId:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        bondUnitAmount:
+          type: integer
+          format: int32
+        fee:
+          type: integer
+          format: int32
+        referenceCode:
+          type: string
+        transactionDateTime:
+          type: string
+        effective_date:
+          type: string
+        citizenId:
+          type: string
+        referenceCodeAutoPay:
+          type: string
+        amountAutoPayCasa:
+          type: number
+        qrVerifySlipAutoPay:
+          type: string
+        transactionDateTimeAutoPay:
+          type: string
+        accountNoAutoPay:
+          type: string
+        accountDisplayAutoPay:
+          type: string
+        amountAutoPayWallet:
+          type: number
+        fromWalletId:
+          type: string
+        offerPrice:
+          type: integer
+          format: int32
+      example:
+        mmWalletId: 006880089000624
+        amount: 10000
+        bondUnitAmount: 10
+        fee: 0
+        referenceCode: c1d936c3-0464-47f4-a993-460d470503a1
+        transactionDateTime: 2020-02-03T11:04:36.91
+        effective_date: 2020-02-03
+        citizenId: '1234567890123'
+        referenceCodeAutoPay: xxxxx
+        amountAutoPayCasa: 2444.2
+        qrVerifySlipAutoPay: 23wradgsdhfh
+        transactionDateTimeAutoPay: 23:35:24
+        accountNoAutoPay: ssfsaf
+        accountDisplayAutoPay: dsd sd
+        amountAutoPayWallet: 2324.2
+        fromWalletId: String
+        offerPrice: 1000
+    /bond/selling/secondary-mkt/confirm-request:
+      title: /bond/selling/secondary-mkt/confirm-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq4'
+        content:
+          $ref: '#/components/schemas/Content19'
+      example:
+        headerReq:
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          reqBy: 0850669997
+          sofType: ''
+          service: SellBondConfirmService
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-06-06 14:59:29.056
+          cardNo: ''
+        content:
+          uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+          userId: 0850669997
+          appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+          thaiSymbol: SB245A
+          mmWalletId: 006880063916621
+          bondUnit: 100
+          bidPrice: 102
+          mmCode: mm03
+          fromWalletId: '234234'
+          refPricingNo: '202008220002'
+    Content19:
+      title: Content19
+      required:
+      - uuId
+      - userId
+      - appId
+      - thaiSymbol
+      - mmWalletId
+      - bondUnit
+      - bidPrice
+      - mmCode
+      - fromWalletId
+      - refPricingNo
+      type: object
+      properties:
+        uuId:
+          type: string
+        userId:
+          type: string
+        appId:
+          type: string
+        thaiSymbol:
+          type: string
+        mmWalletId:
+          type: string
+        bondUnit:
+          type: integer
+          format: int32
+        bidPrice:
+          type: integer
+          format: int32
+        mmCode:
+          type: string
+        fromWalletId:
+          type: string
+        refPricingNo:
+          type: string
+      example:
+        uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+        userId: 0850669997
+        appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+        thaiSymbol: SB245A
+        mmWalletId: 006880063916621
+        bondUnit: 100
+        bidPrice: 102
+        mmCode: mm03
+        fromWalletId: '234234'
+        refPricingNo: '202008220002'
+    /bond/sale/secondary-mkt/confirm:
+      title: /bond/sale/secondary-mkt/confirm
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content20'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          mmWalletId: 006880089000624
+          amount: 20000
+          bondUnit: 1000
+          bidPrice: 20
+          fee: 0
+          referenceCode: c1d936c3-0464-47f4-a993-460d470503a1
+          transactionDateTime: 2020-02-03T11:04:36.91
+          effectiveDate: effectiveDate
+          citizenId: ''
+          fromWalletId: ''
+    Content20:
+      title: Content20
+      required:
+      - mmWalletId
+      - amount
+      - bondUnit
+      - bidPrice
+      - fee
+      - referenceCode
+      - transactionDateTime
+      - effectiveDate
+      - citizenId
+      - fromWalletId
+      type: object
+      properties:
+        mmWalletId:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        bondUnit:
+          type: integer
+          format: int32
+        bidPrice:
+          type: integer
+          format: int32
+        fee:
+          type: integer
+          format: int32
+        referenceCode:
+          type: string
+        transactionDateTime:
+          type: string
+        effectiveDate:
+          type: string
+        citizenId:
+          type: string
+        fromWalletId:
+          type: string
+      example:
+        mmWalletId: 006880089000624
+        amount: 20000
+        bondUnit: 1000
+        bidPrice: 20
+        fee: 0
+        referenceCode: c1d936c3-0464-47f4-a993-460d470503a1
+        transactionDateTime: 2020-02-03T11:04:36.91
+        effectiveDate: effectiveDate
+        citizenId: ''
+        fromWalletId: ''
+    /dipchip/inquiry/registerrequest:
+      title: /dipchip/inquiry/registerrequest
+      required:
+      - citizenId
+      type: object
+      properties:
+        citizenId:
+          type: string
+      example:
+        citizenId: '1234567891011'
+    /dipchip/inquiry/register:
+      title: /dipchip/inquiry/register
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content21'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          dipchipFlag: true
+    Content21:
+      title: Content21
+      required:
+      - dipchipFlag
+      type: object
+      properties:
+        dipchipFlag:
+          type: boolean
+      example:
+        dipchipFlag: true
+    /dipchip/inquiry/register{reborn}request:
+      title: /dipchip/inquiry/register{reborn}request
+      required:
+      - citizenId
+      type: object
+      properties:
+        citizenId:
+          type: string
+      example:
+        citizenId: '1234567891011'
+    /bond/risk-assessment/get-request:
+      title: /bond/risk-assessment/get-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq9'
+        content:
+          $ref: '#/components/schemas/Content23'
+      example:
+        headerReq:
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          reqBy: 0850669997
+          sofType: ''
+          service: RiskAssessmentInquiryService
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-08-04 12:48:29.056
+          cardNo: ''
+          txnRefID: ''
+        content:
+          uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+          userId: 0850669997
+          appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+          cardType: I
+          cardId: '3102102067970'
+    Content23:
+      title: Content23
+      required:
+      - uuId
+      - userId
+      - appId
+      - cardType
+      - cardId
+      type: object
+      properties:
+        uuId:
+          type: string
+        userId:
+          type: string
+        appId:
+          type: string
+        cardType:
+          type: string
+        cardId:
+          type: string
+      example:
+        uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+        userId: 0850669997
+        appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+        cardType: I
+        cardId: '3102102067970'
+    /bond/risk-assessment/get:
+      title: /bond/risk-assessment/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content24'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-08-04 12:48:29.056
+          txnRefID: xxxx
+          service: RiskAssessmentInquiryService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          requireRiskAssessmentFlag: Y
+          detail: []
+    HeaderResp12:
+      title: HeaderResp12
+      required:
+      - reqID
+      - reqDtm
+      - txnRefID
+      - service
+      - statusCd
+      - statusDesc
+      type: object
+      properties:
+        reqID:
+          type: string
+        reqDtm:
+          type: string
+        txnRefID:
+          type: string
+        service:
+          type: string
+        statusCd:
+          type: string
+        statusDesc:
+          type: string
+      example:
+        reqID: hAdsJgb6ep9C7uMzt8nc
+        reqDtm: 2020-08-04 12:48:29.056
+        txnRefID: xxxx
+        service: RiskAssessmentInquiryService
+        statusCd: 0000
+        statusDesc: Success
+    Content24:
+      title: Content24
+      required:
+      - requireRiskAssessmentFlag
+      - detail
+      type: object
+      properties:
+        requireRiskAssessmentFlag:
+          type: string
+        detail:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        requireRiskAssessmentFlag: Y
+        detail: []
+    /bond/risk-assessment/get1:
+      title: /bond/risk-assessment/get1
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content25'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-08-04 12:48:29.056
+          txnRefID: xxxx
+          service: RiskAssessmentInquiryService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          requireRiskAssessmentFlag: N
+          detail:
+          - channelId: PT
+            transCd: SGI000000030
+            transDate: '20200804'
+            transTime: 12:48:29
+            branchCode: '0'
+            customerType: '1'
+            cardType: I
+            cardId: '3000000001761'
+            ageScore1: 3
+            educationScore2: 3
+            experienceScore3: 3
+            periodScore4: 2
+            costScore5: 3
+            ratioScore6: 3
+            attitudeScore7: 3
+            riskScore8: 3
+            inflationScore9: 3
+            lossScore10: 3
+            exchangeRateFlag: Y
+            totalScore: 29
+            suitable: '5'
+            investorTypeDescThai: 'แสดงว่าท่านเป็นนักลงทุนประเภท เสี่ยงปานกลางค่อนข้างสูง หมายความว่าท่านสามารถยอมรับมูลค่าการลงทุนลดลงเป็นครั้งคราวได้  '
+            investorTypeDescEng: 'Investor is a Medium-to-High Risk type.  Capable to accept occasional investment loss. '
+            basicAsset: 3
+            riskProfileDate: 13-08-2020 14:02:48
+            birthDate: 16-04-1966
+            teller: '500323'
+            lastUpdateChannel: PT
+    Content25:
+      title: Content25
+      required:
+      - requireRiskAssessmentFlag
+      - detail
+      type: object
+      properties:
+        requireRiskAssessmentFlag:
+          type: string
+        detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+          description: ''
+      example:
+        requireRiskAssessmentFlag: N
+        detail:
+        - channelId: PT
+          transCd: SGI000000030
+          transDate: '20200804'
+          transTime: 12:48:29
+          branchCode: '0'
+          customerType: '1'
+          cardType: I
+          cardId: '3000000001761'
+          ageScore1: 3
+          educationScore2: 3
+          experienceScore3: 3
+          periodScore4: 2
+          costScore5: 3
+          ratioScore6: 3
+          attitudeScore7: 3
+          riskScore8: 3
+          inflationScore9: 3
+          lossScore10: 3
+          exchangeRateFlag: Y
+          totalScore: 29
+          suitable: '5'
+          investorTypeDescThai: 'แสดงว่าท่านเป็นนักลงทุนประเภท เสี่ยงปานกลางค่อนข้างสูง หมายความว่าท่านสามารถยอมรับมูลค่าการลงทุนลดลงเป็นครั้งคราวได้  '
+          investorTypeDescEng: 'Investor is a Medium-to-High Risk type.  Capable to accept occasional investment loss. '
+          basicAsset: 3
+          riskProfileDate: 13-08-2020 14:02:48
+          birthDate: 16-04-1966
+          teller: '500323'
+          lastUpdateChannel: PT
+    Detail:
+      title: Detail
+      required:
+      - channelId
+      - transCd
+      - transDate
+      - transTime
+      - branchCode
+      - customerType
+      - cardType
+      - cardId
+      - ageScore1
+      - educationScore2
+      - experienceScore3
+      - periodScore4
+      - costScore5
+      - ratioScore6
+      - attitudeScore7
+      - riskScore8
+      - inflationScore9
+      - lossScore10
+      - exchangeRateFlag
+      - totalScore
+      - suitable
+      - investorTypeDescThai
+      - investorTypeDescEng
+      - basicAsset
+      - riskProfileDate
+      - birthDate
+      - teller
+      - lastUpdateChannel
+      type: object
+      properties:
+        channelId:
+          type: string
+        transCd:
+          type: string
+        transDate:
+          type: string
+        transTime:
+          type: string
+        branchCode:
+          type: string
+        customerType:
+          type: string
+        cardType:
+          type: string
+        cardId:
+          type: string
+        ageScore1:
+          type: integer
+          format: int32
+        educationScore2:
+          type: integer
+          format: int32
+        experienceScore3:
+          type: integer
+          format: int32
+        periodScore4:
+          type: integer
+          format: int32
+        costScore5:
+          type: integer
+          format: int32
+        ratioScore6:
+          type: integer
+          format: int32
+        attitudeScore7:
+          type: integer
+          format: int32
+        riskScore8:
+          type: integer
+          format: int32
+        inflationScore9:
+          type: integer
+          format: int32
+        lossScore10:
+          type: integer
+          format: int32
+        exchangeRateFlag:
+          type: string
+        totalScore:
+          type: integer
+          format: int32
+        suitable:
+          type: string
+        investorTypeDescThai:
+          type: string
+        investorTypeDescEng:
+          type: string
+        basicAsset:
+          type: integer
+          format: int32
+        riskProfileDate:
+          type: string
+        birthDate:
+          type: string
+        teller:
+          type: string
+        lastUpdateChannel:
+          type: string
+      example:
+        channelId: PT
+        transCd: SGI000000030
+        transDate: '20200804'
+        transTime: 12:48:29
+        branchCode: '0'
+        customerType: '1'
+        cardType: I
+        cardId: '3000000001761'
+        ageScore1: 3
+        educationScore2: 3
+        experienceScore3: 3
+        periodScore4: 2
+        costScore5: 3
+        ratioScore6: 3
+        attitudeScore7: 3
+        riskScore8: 3
+        inflationScore9: 3
+        lossScore10: 3
+        exchangeRateFlag: Y
+        totalScore: 29
+        suitable: '5'
+        investorTypeDescThai: 'แสดงว่าท่านเป็นนักลงทุนประเภท เสี่ยงปานกลางค่อนข้างสูง หมายความว่าท่านสามารถยอมรับมูลค่าการลงทุนลดลงเป็นครั้งคราวได้  '
+        investorTypeDescEng: 'Investor is a Medium-to-High Risk type.  Capable to accept occasional investment loss. '
+        basicAsset: 3
+        riskProfileDate: 13-08-2020 14:02:48
+        birthDate: 16-04-1966
+        teller: '500323'
+        lastUpdateChannel: PT
+    Encrypt:/bond/risk-assessment/getRequest:
+      title: Encrypt:/bond/risk-assessment/getRequest
+      required:
+      - param1
+      - param2
+      type: object
+      properties:
+        param1:
+          type: string
+        param2:
+          type: string
+      example:
+        param1: 2mbCndh21c/u5hQS/Xts63owq49G+8G5FCKC8A+A3bfBUycdC0Woy/dk0zU2A+Y52DWN+tdJs6Q1EUWTn43VNN1wqS3mVNfJApmad1Jj9SiLV5RgfdmnSucQ3N0QZxEma3l8vpv0fUaywQQ7LfGzrIkmNZNNmT3NJBJmg4qffULL6gK84CxkdyKqqBSUTrAGpCrvA1mmSPJMaqAZeUaGcR4LkIajJrAjl0Vlfwjyq4CfjbOAmmNcdDOgFn5nMDkMLS4SWoyGNS2mqTayLhKisjZDPs7lZmbGnWnDAtXNonnowkm+27C3d8mD5fTlLErH7X7gS2sf/YanDoYSS2E7cdNJfS+cm3nvcQ+RfD88sLSX4rBBnAbZPrdtXe6VikUapBgIYhlVzjGp8tWZ/9O/oI2GW0EVLihdoUUMb6gzLBFmCYLj6qQEfFjFu7ioSku/dAfo4eb4B74KDKZjuYuOQqF2vtrCCMJJLYDURF6RBLobTai000UQqzv2Umms0xuVI8Fjryocb1Iv9pY0ofwSsn7rUXgUyQHc7HecnifjQQnrfqIqeb0WqUkGOt4VR4N0Wi5OOgY+sWZPj5Co2uaawz+E37NjsN3qI69jz6UabpdPlLwp6owvtU7ziy0lMNmGQaWbZx7qRkdfU5yp69e67gJSruBPx6fEsN0trYz0CgVr+wbTX6ITIJ9L/5D0Eclv7PIouFjwVtVoWyNz0CsLEef9FeIwgrSKZh3BwFeXaiHdfIj7ENkmTGCMLMd//EDimrjLWMPXRC7QZkQGZ5ibvAIbX1mQqk/hsC7zpb2AjbTagVEWA3eUOVABsOJLzzu18+2eY/K6+NgE8osvCtth0ft/unglxZxMFJ1C8OLDaHw=
+        param2: wZwbgtiZq3O/yotYgdj8k1RtrGpDJpgqcAYG67vHPz5qp01Nbnno1ai2vi60umyiIoIjFWhmTkyX42/ufQoJUr2SIxN7Uqxh8/Fz6w2HqZ6+VVPGZwJjn90xtuRU6Ynn9P1ijdcdteVNju83K3rHqo6+VCztRUjpRgianq7ckr+K/EKDBSIoAkiqrJ5D9srtD6Twb2L7MeHOh+oTAlL9OYOaRzYhalDEH1OPJRi3AF520GonTgRmKMtkDCVdP3L+Z7P8AKPO5dbLbHSd9qoEQRfyViC/i5VQOfv+ORrv2m3YtFQN00eH00Z+f/3wNGQ+qe9E5xHkg6uubooU2Q6xYg==
+    http://localhost:8080/risk-assessment/get:
+      title: http://localhost:8080/risk-assessment/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content26'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-08-04 12:48:29.056
+          txnRefID: xxxx
+          service: RiskAssessmentInquiryService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          callRiskAssessment: Y
+          detail: []
+    Content26:
+      title: Content26
+      required:
+      - callRiskAssessment
+      - detail
+      type: object
+      properties:
+        callRiskAssessment:
+          type: string
+        detail:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        callRiskAssessment: Y
+        detail: []
+    /bond/risk-assessment/get2:
+      title: /bond/risk-assessment/get2
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content27'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-08-04 12:48:29.056
+          txnRefID: xxxx
+          service: RiskAssessmentInquiryService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          callRiskAssessment: N
+          detail:
+          - channelId: PT
+            transCd: SGI000000030
+            transDate: '20200804'
+            transTime: 12:48:29
+            branchCode: '0'
+            customerType: '1'
+            cardType: I
+            cardId: '3000000001761'
+            ageScore1: 3
+            educationScore2: 3
+            experienceScore3: 3
+            periodScore4: 2
+            costScore5: 3
+            ratioScore6: 3
+            attitudeScore7: 3
+            riskScore8: 3
+            inflationScore9: 3
+            lossScore10: 3
+            exchangeRateFlag: Y
+            totalScore: 29
+            suitable: '5'
+            investorTypeDescThai: 'แสดงว่าท่านเป็นนักลงทุนประเภท เสี่ยงปานกลางค่อนข้างสูง หมายความว่าท่านสามารถยอมรับมูลค่าการลงทุนลดลงเป็นครั้งคราวได้  '
+            investorTypeDescEng: 'Investor is a Medium-to-High Risk type.  Capable to accept occasional investment loss. '
+            basicAsset: 3
+            riskProfileDate: 13-08-2020 14:02:48
+            birthDate: 16-04-1966
+            teller: '500323'
+            lastUpdateChannel: PT
+    Content27:
+      title: Content27
+      required:
+      - callRiskAssessment
+      - detail
+      type: object
+      properties:
+        callRiskAssessment:
+          type: string
+        detail:
+          type: array
+          items:
+            $ref: '#/components/schemas/Detail'
+          description: ''
+      example:
+        callRiskAssessment: N
+        detail:
+        - channelId: PT
+          transCd: SGI000000030
+          transDate: '20200804'
+          transTime: 12:48:29
+          branchCode: '0'
+          customerType: '1'
+          cardType: I
+          cardId: '3000000001761'
+          ageScore1: 3
+          educationScore2: 3
+          experienceScore3: 3
+          periodScore4: 2
+          costScore5: 3
+          ratioScore6: 3
+          attitudeScore7: 3
+          riskScore8: 3
+          inflationScore9: 3
+          lossScore10: 3
+          exchangeRateFlag: Y
+          totalScore: 29
+          suitable: '5'
+          investorTypeDescThai: 'แสดงว่าท่านเป็นนักลงทุนประเภท เสี่ยงปานกลางค่อนข้างสูง หมายความว่าท่านสามารถยอมรับมูลค่าการลงทุนลดลงเป็นครั้งคราวได้  '
+          investorTypeDescEng: 'Investor is a Medium-to-High Risk type.  Capable to accept occasional investment loss. '
+          basicAsset: 3
+          riskProfileDate: 13-08-2020 14:02:48
+          birthDate: 16-04-1966
+          teller: '500323'
+          lastUpdateChannel: PT
+    /bond/risk-assessment/submit-request:
+      title: /bond/risk-assessment/submit-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq4'
+        content:
+          $ref: '#/components/schemas/Content28'
+      example:
+        headerReq:
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          reqBy: 0850669997
+          sofType: ''
+          service: RiskAssessmentSubmmitService
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-06-06 14:59:29.056
+          cardNo: ''
+        content:
+          uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+          userId: 0850669997
+          appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+          transType: 2
+          branchCode: '0'
+          cardType: I
+          cardId: '3102102067970'
+          ageScore1: 3
+          educationScore2: 3
+          experienceScore3: 3
+          periodScore4: 2
+          costScore5: 3
+          ratioScore6: 3
+          attitudeScore7: 3
+          riskScore8: 3
+          inflationScore9: 3
+          lossScore10: 3
+          riskProfileDate: 20200916 06:45:41
+          birthDate: ''
+          exchangeRateFlag: Y
+          teller: ''
+    Content28:
+      title: Content28
+      required:
+      - uuId
+      - userId
+      - appId
+      - transType
+      - branchCode
+      - cardType
+      - cardId
+      - ageScore1
+      - educationScore2
+      - experienceScore3
+      - periodScore4
+      - costScore5
+      - ratioScore6
+      - attitudeScore7
+      - riskScore8
+      - inflationScore9
+      - lossScore10
+      - riskProfileDate
+      - birthDate
+      - exchangeRateFlag
+      - teller
+      type: object
+      properties:
+        uuId:
+          type: string
+        userId:
+          type: string
+        appId:
+          type: string
+        transType:
+          type: integer
+          format: int32
+        branchCode:
+          type: string
+        cardType:
+          type: string
+        cardId:
+          type: string
+        ageScore1:
+          type: integer
+          format: int32
+        educationScore2:
+          type: integer
+          format: int32
+        experienceScore3:
+          type: integer
+          format: int32
+        periodScore4:
+          type: integer
+          format: int32
+        costScore5:
+          type: integer
+          format: int32
+        ratioScore6:
+          type: integer
+          format: int32
+        attitudeScore7:
+          type: integer
+          format: int32
+        riskScore8:
+          type: integer
+          format: int32
+        inflationScore9:
+          type: integer
+          format: int32
+        lossScore10:
+          type: integer
+          format: int32
+        riskProfileDate:
+          type: string
+        birthDate:
+          type: string
+        exchangeRateFlag:
+          type: string
+        teller:
+          type: string
+      example:
+        uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+        userId: 0850669997
+        appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+        transType: 2
+        branchCode: '0'
+        cardType: I
+        cardId: '3102102067970'
+        ageScore1: 3
+        educationScore2: 3
+        experienceScore3: 3
+        periodScore4: 2
+        costScore5: 3
+        ratioScore6: 3
+        attitudeScore7: 3
+        riskScore8: 3
+        inflationScore9: 3
+        lossScore10: 3
+        riskProfileDate: 20200916 06:45:41
+        birthDate: ''
+        exchangeRateFlag: Y
+        teller: ''
+    /bond/risk-assessment/submit:
+      title: /bond/risk-assessment/submit
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content29'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-06-06 14:59:29.056
+          txnRefID: ''
+          service: RiskAssessmentSubmitService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          refId: 203423424
+          resultRiskProfile1:
+            scoreLevel: '35'
+            riskLevel: '7'
+          resultRiskProfile2:
+            riskAcceptRateExchange: ได้
+          resultRiskProfile3:
+            scoreLevel: '4'
+            investorType: เสี่ยงสูง
+    Content29:
+      title: Content29
+      required:
+      - refId
+      - resultRiskProfile1
+      - resultRiskProfile2
+      - resultRiskProfile3
+      type: object
+      properties:
+        refId:
+          type: integer
+          format: int32
+        resultRiskProfile1:
+          $ref: '#/components/schemas/ResultRiskProfile1'
+        resultRiskProfile2:
+          $ref: '#/components/schemas/ResultRiskProfile2'
+        resultRiskProfile3:
+          $ref: '#/components/schemas/ResultRiskProfile3'
+      example:
+        refId: 203423424
+        resultRiskProfile1:
+          scoreLevel: '35'
+          riskLevel: '7'
+        resultRiskProfile2:
+          riskAcceptRateExchange: ได้
+        resultRiskProfile3:
+          scoreLevel: '4'
+          investorType: เสี่ยงสูง
+    ResultRiskProfile1:
+      title: ResultRiskProfile1
+      required:
+      - scoreLevel
+      - riskLevel
+      type: object
+      properties:
+        scoreLevel:
+          type: string
+        riskLevel:
+          type: string
+      example:
+        scoreLevel: '35'
+        riskLevel: '7'
+    ResultRiskProfile2:
+      title: ResultRiskProfile2
+      required:
+      - riskAcceptRateExchange
+      type: object
+      properties:
+        riskAcceptRateExchange:
+          type: string
+      example:
+        riskAcceptRateExchange: ได้
+    ResultRiskProfile3:
+      title: ResultRiskProfile3
+      required:
+      - scoreLevel
+      - investorType
+      type: object
+      properties:
+        scoreLevel:
+          type: string
+        investorType:
+          type: string
+      example:
+        scoreLevel: '4'
+        investorType: เสี่ยงสูง
+    /bond/risk-assessment/confirm-request:
+      title: /bond/risk-assessment/confirm-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq4'
+        content:
+          $ref: '#/components/schemas/Content30'
+      example:
+        headerReq:
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          reqBy: 0850669997
+          sofType: ''
+          service: RiskAssessmentConfirmService
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-06-06 14:59:29.056
+          cardNo: ''
+        content:
+          uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+          userId: 0850669997
+          appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+          refId: 245907905358
+    Content30:
+      title: Content30
+      required:
+      - uuId
+      - userId
+      - appId
+      - refId
+      type: object
+      properties:
+        uuId:
+          type: string
+        userId:
+          type: string
+        appId:
+          type: string
+        refId:
+          type: integer
+          format: int64
+      example:
+        uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+        userId: 0850669997
+        appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+        refId: 245907905358
+    /bond/risk-assessment/confirm:
+      title: /bond/risk-assessment/confirm
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          type: string
+          nullable: true
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-06-06 14:59:29.056
+          txnRefID: ''
+          service: RiskAssessmentConfirmService
+          statusCd: 0000
+          statusDesc: Success
+        content: ''
+    /bond/auto-pay/info/get-request:
+      title: /bond/auto-pay/info/get-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq4'
+        content:
+          $ref: '#/components/schemas/Content31'
+      example:
+        headerReq:
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          reqBy: 0850669997
+          sofType: ''
+          service: RiskAssessmentConfirmService
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-06-06 14:59:29.056
+          cardNo: ''
+        content:
+          uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+          userId: 0850669997
+          appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+          walletId: 006880050163377
+    Content31:
+      title: Content31
+      required:
+      - uuId
+      - userId
+      - appId
+      - walletId
+      type: object
+      properties:
+        uuId:
+          type: string
+        userId:
+          type: string
+        appId:
+          type: string
+        walletId:
+          type: string
+      example:
+        uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+        userId: 0850669997
+        appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+        walletId: 006880050163377
+    /bond/auto-pay/info/get:
+      title: /bond/auto-pay/info/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content32'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-06-06 14:59:29.056
+          txnRefID: ''
+          service: RiskAssessmentConfirmService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          availBalAmtEms: 1000
+          availBalAmtCbs: 1000
+          cbsAccountNo: '1234516'
+    Content32:
+      title: Content32
+      required:
+      - availBalAmtEms
+      - availBalAmtCbs
+      - cbsAccountNo
+      type: object
+      properties:
+        availBalAmtEms:
+          type: integer
+          format: int32
+        availBalAmtCbs:
+          type: integer
+          format: int32
+        cbsAccountNo:
+          type: string
+      example:
+        availBalAmtEms: 1000
+        availBalAmtCbs: 1000
+        cbsAccountNo: '1234516'
+    /bond/fatca/getrequest:
+      title: /bond/fatca/getrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq9'
+        content:
+          $ref: '#/components/schemas/Content33'
+      example:
+        headerReq:
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          reqBy: 0850669997
+          sofType: PM
+          service: FatcaInquiryService
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-08-04 12:48:29.056
+          cardNo: 0000551996
+          txnRefID: xxxx
+        content:
+          uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+          userId: 0850669997
+          appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+          citizenId: '3000000001761'
+    Content33:
+      title: Content33
+      required:
+      - uuId
+      - userId
+      - appId
+      - citizenId
+      type: object
+      properties:
+        uuId:
+          type: string
+        userId:
+          type: string
+        appId:
+          type: string
+        citizenId:
+          type: string
+      example:
+        uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+        userId: 0850669997
+        appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+        citizenId: '3000000001761'
+    /bond/fatca/get:
+      title: /bond/fatca/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content34'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-08-04 12:48:29.056
+          txnRefID: xxxx
+          service: FatcaInquiryService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          requireFatcaFlag: Y
+    Content34:
+      title: Content34
+      required:
+      - requireFatcaFlag
+      type: object
+      properties:
+        requireFatcaFlag:
+          type: string
+      example:
+        requireFatcaFlag: Y
+    /bond/info/getrequest:
+      title: /bond/info/getrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq9'
+        content:
+          $ref: '#/components/schemas/Content33'
+      example:
+        headerReq:
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          reqBy: 0850669997
+          sofType: PM
+          service: FatcaInquiryService
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-08-04 12:48:29.056
+          cardNo: 0000551996
+          txnRefID: xxxx
+        content:
+          uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+          userId: 0850669997
+          appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+          citizenId: '3000000001761'
+    /bond/info/get:
+      title: /bond/info/get
+      required:
+      - citizenId
+      - idType
+      - walletId
+      - titleNameCode
+      - titleName
+      - firstNameTh
+      - firstNameEn
+      - middleNameTh
+      - middleNameEn
+      - lastNameTh
+      - lastNameEn
+      - address
+      - country
+      - province
+      - district
+      - subDistrict
+      - zipCode
+      - mobileNo
+      - email
+      - occupation
+      - wht
+      - gender
+      - nationality
+      - birthDate
+      - realBirthDate
+      - taxId
+      - holderType
+      - provinceValue
+      - districtValue
+      - subDistrictValue
+      type: object
+      properties:
+        citizenId:
+          type: string
+        idType:
+          type: string
+        walletId:
+          type: string
+        titleNameCode:
+          type: string
+        titleName:
+          type: string
+        firstNameTh:
+          type: string
+        firstNameEn:
+          type: string
+        middleNameTh:
+          type: string
+        middleNameEn:
+          type: string
+        lastNameTh:
+          type: string
+        lastNameEn:
+          type: string
+        address:
+          type: string
+        country:
+          type: string
+        province:
+          type: string
+        district:
+          type: string
+        subDistrict:
+          type: string
+        zipCode:
+          type: string
+        mobileNo:
+          type: string
+        email:
+          type: string
+        occupation:
+          type: string
+        wht:
+          type: string
+        gender:
+          type: string
+        nationality:
+          type: string
+        birthDate:
+          type: string
+        realBirthDate:
+          type: string
+        taxId:
+          type: string
+        holderType:
+          type: string
+        provinceValue:
+          type: string
+        districtValue:
+          type: string
+        subDistrictValue:
+          type: string
+      example:
+        citizenId: String
+        idType: String?
+        walletId: String?
+        titleNameCode: String?
+        titleName: String?
+        firstNameTh: String?
+        firstNameEn: String?
+        middleNameTh: String?
+        middleNameEn: String?
+        lastNameTh: String?
+        lastNameEn: String?
+        address: String?
+        country: String?
+        province: String?
+        district: String?
+        subDistrict: String?
+        zipCode: String?
+        mobileNo: String?
+        email: String?
+        occupation: String?
+        wht: String?
+        gender: String?
+        nationality: String?
+        birthDate: LocalDate?
+        realBirthDate: String?
+        taxId: String?
+        holderType: String?
+        provinceValue: String?
+        districtValue: String?
+        subDistrictValue: String?
+    /wallet/profile/lookuprequest:
+      title: /wallet/profile/lookuprequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content36'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          citizenId: '1234567891011'
+    Content36:
+      title: Content36
+      required:
+      - citizenId
+      type: object
+      properties:
+        citizenId:
+          type: string
+      example:
+        citizenId: '1234567891011'
+    /wallet/profile/lookup:
+      title: /wallet/profile/lookup
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content37'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          citizenId: String
+          walletId: String?
+          walletIdHash: String?
+          walletCifNo: String?
+          walletAccount: String?
+          firstname: String?
+          lastname: String?
+          dipchipStatus: false
+          formVerifiedStatus: false
+          faceVerifiedStatus: false
+          termsAcceptedStatus: false
+          byPassFlag: false
+          cashLimitPerDay: 0
+          cashLimitPerTimes: 0
+          upgradeStatus: false
+          mobileNo: String
+    Content37:
+      title: Content37
+      required:
+      - citizenId
+      - walletId
+      - walletIdHash
+      - walletCifNo
+      - walletAccount
+      - firstname
+      - lastname
+      - dipchipStatus
+      - formVerifiedStatus
+      - faceVerifiedStatus
+      - termsAcceptedStatus
+      - byPassFlag
+      - cashLimitPerDay
+      - cashLimitPerTimes
+      - upgradeStatus
+      - mobileNo
+      type: object
+      properties:
+        citizenId:
+          type: string
+        walletId:
+          type: string
+        walletIdHash:
+          type: string
+        walletCifNo:
+          type: string
+        walletAccount:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        dipchipStatus:
+          type: boolean
+        formVerifiedStatus:
+          type: boolean
+        faceVerifiedStatus:
+          type: boolean
+        termsAcceptedStatus:
+          type: boolean
+        byPassFlag:
+          type: boolean
+        cashLimitPerDay:
+          type: integer
+          format: int32
+        cashLimitPerTimes:
+          type: integer
+          format: int32
+        upgradeStatus:
+          type: boolean
+        mobileNo:
+          type: string
+      example:
+        citizenId: String
+        walletId: String?
+        walletIdHash: String?
+        walletCifNo: String?
+        walletAccount: String?
+        firstname: String?
+        lastname: String?
+        dipchipStatus: false
+        formVerifiedStatus: false
+        faceVerifiedStatus: false
+        termsAcceptedStatus: false
+        byPassFlag: false
+        cashLimitPerDay: 0
+        cashLimitPerTimes: 0
+        upgradeStatus: false
+        mobileNo: String
+    /api-open-wallet/get-sequence/id-request:
+      title: /api-open-wallet/get-sequence/id-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content36'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          citizenId: '1234567891011'
+    /api-open-wallet/get-sequence/id:
+      title: /api-open-wallet/get-sequence/id
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content39'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          sequenceId: String
+    Content39:
+      title: Content39
+      required:
+      - sequenceId
+      type: object
+      properties:
+        sequenceId:
+          type: string
+      example:
+        sequenceId: String
+    /api-open-wallet/upgrade/submit-request:
+      title: /api-open-wallet/upgrade/submit-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content40'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          requestId: string
+          citizenId: x-xxx-xxxxxxx
+    Content40:
+      title: Content40
+      required:
+      - requestId
+      - citizenId
+      type: object
+      properties:
+        requestId:
+          type: string
+        citizenId:
+          type: string
+      example:
+        requestId: string
+        citizenId: x-xxx-xxxxxxx
+    /api-open-wallet/get-sequence/id1:
+      title: /api-open-wallet/get-sequence/id1
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content41'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          requestId: String
+    Content41:
+      title: Content41
+      required:
+      - requestId
+      type: object
+      properties:
+        requestId:
+          type: string
+      example:
+        requestId: String
+    /api-open-wallet/upgrade/state/get-request:
+      title: /api-open-wallet/upgrade/state/get-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content36'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          citizenId: '1234567891011'
+    /api-open-wallet/upgrade/state/get:
+      title: /api-open-wallet/upgrade/state/get
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content43'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          state: String ex.[SUBMITTED,VERIFY_FACE_FAIL,UPGRADED]
+    Content43:
+      title: Content43
+      required:
+      - state
+      type: object
+      properties:
+        state:
+          type: string
+      example:
+        state: String ex.[SUBMITTED,VERIFY_FACE_FAIL,UPGRADED]
+    /get/deeplinkrequest:
+      title: /get/deeplinkrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content44'
+      example:
+        headerReq:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-09-14 11:00:00.056
+          reqBy: 0850669997
+          service: DeeplinkNextService
+          txnRefID: xxxx
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          sofType: PM
+        content:
+          partnerDeeplinkUrl: paotanguat://paotang.co.th/next.register?
+    Content44:
+      title: Content44
+      required:
+      - partnerDeeplinkUrl
+      type: object
+      properties:
+        partnerDeeplinkUrl:
+          type: string
+      example:
+        partnerDeeplinkUrl: paotanguat://paotang.co.th/next.register?
+    /get/deeplink:
+      title: /get/deeplink
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content45'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-09-14 11:00:00.056
+          txnRefID: xxxx
+          service: DeeplinkNextService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          deeplinkUrl: ktbnext://next.co.th/app.to.app/profile?deeplinkToken=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJLcnVuZ3RoYWlORVhUIiwiaWF0IjoxNTc1MTU4NDAwLCJleHAiOjE1OTA0NjU4OTMsImF1ZCI6InBhb3RhbmciLCJwYXJ0bmVyIjoicGFvdGFuZyIsInN1YiI6InByb2ZpbGUiLCJkZWVwbGlua0lkIjoiNjc4ZWEyZjUtNzFiOC00MDNmLWFjMWQtOGUzZTdjNGQ0NjNlLWRlZXAifQ.PUAs5WkN0JekH9xQ3Y_fEoAMDU8p7d2ipsBCHm1BOoTW6xKz7WQgXktyEsE4SHB0lIQgMLNdF857wsjFiJ3oGA4yZe2reELqioX150fGOjxPGCYAkQaMyKFM98uJt9sP3NGLxafa387OJkyutz7QoHjtdXxId1od7IOGh3e71pKj5XE3FypPb33GWXZYZMVg-mA3Ms9ZtEANa8nCCLef-xcwPYei7xboUTz5YWChvZ0b4yd3HOhLIiv3lZqa37k9ghAc73WeC3xayuKamD0jBx5hl9vruvLXH8M8vmLZZ88lVtMVwYFJNTX5RX-35-39QIPr9rF98vIQ-8YyEEQyrw
+          deeplinkToken: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJLcnVuZ3RoYWlORVhUIiwiaWF0IjoxNTc1MTU4NDAwLCJleHAiOjE1OTA0NjU4OTMsImF1ZCI6InBhb3RhbmciLCJwYXJ0bmVyIjoicGFvdGFuZyIsInN1YiI6InByb2ZpbGUiLCJkZWVwbGlua0lkIjoiNjc4ZWEyZjUtNzFiOC00MDNmLWFjMWQtOGUzZTdjNGQ0NjNlLWRlZXAifQ.PUAs5WkN0JekH9xQ3Y_fEoAMDU8p7d2ipsBCHm1BOoTW6xKz7WQgXktyEsE4SHB0lIQgMLNdF857wsjFiJ3oGA4yZe2reELqioX150fGOjxPGCYAkQaMyKFM98uJt9sP3NGLxafa387OJkyutz7QoHjtdXxId1od7IOGh3e71pKj5XE3FypPb33GWXZYZMVg-mA3Ms9ZtEANa8nCCLef-xcwPYei7xboUTz5YWChvZ0b4yd3HOhLIiv3lZqa37k9ghAc73WeC3xayuKamD0jBx5hl9vruvLXH8M8vmLZZ88lVtMVwYFJNTX5RX-35-39QIPr9rF98vIQ-8YyEEQyrw
+    Content45:
+      title: Content45
+      required:
+      - deeplinkUrl
+      - deeplinkToken
+      type: object
+      properties:
+        deeplinkUrl:
+          type: string
+        deeplinkToken:
+          type: string
+      example:
+        deeplinkUrl: ktbnext://next.co.th/app.to.app/profile?deeplinkToken=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJLcnVuZ3RoYWlORVhUIiwiaWF0IjoxNTc1MTU4NDAwLCJleHAiOjE1OTA0NjU4OTMsImF1ZCI6InBhb3RhbmciLCJwYXJ0bmVyIjoicGFvdGFuZyIsInN1YiI6InByb2ZpbGUiLCJkZWVwbGlua0lkIjoiNjc4ZWEyZjUtNzFiOC00MDNmLWFjMWQtOGUzZTdjNGQ0NjNlLWRlZXAifQ.PUAs5WkN0JekH9xQ3Y_fEoAMDU8p7d2ipsBCHm1BOoTW6xKz7WQgXktyEsE4SHB0lIQgMLNdF857wsjFiJ3oGA4yZe2reELqioX150fGOjxPGCYAkQaMyKFM98uJt9sP3NGLxafa387OJkyutz7QoHjtdXxId1od7IOGh3e71pKj5XE3FypPb33GWXZYZMVg-mA3Ms9ZtEANa8nCCLef-xcwPYei7xboUTz5YWChvZ0b4yd3HOhLIiv3lZqa37k9ghAc73WeC3xayuKamD0jBx5hl9vruvLXH8M8vmLZZ88lVtMVwYFJNTX5RX-35-39QIPr9rF98vIQ-8YyEEQyrw
+        deeplinkToken: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJLcnVuZ3RoYWlORVhUIiwiaWF0IjoxNTc1MTU4NDAwLCJleHAiOjE1OTA0NjU4OTMsImF1ZCI6InBhb3RhbmciLCJwYXJ0bmVyIjoicGFvdGFuZyIsInN1YiI6InByb2ZpbGUiLCJkZWVwbGlua0lkIjoiNjc4ZWEyZjUtNzFiOC00MDNmLWFjMWQtOGUzZTdjNGQ0NjNlLWRlZXAifQ.PUAs5WkN0JekH9xQ3Y_fEoAMDU8p7d2ipsBCHm1BOoTW6xKz7WQgXktyEsE4SHB0lIQgMLNdF857wsjFiJ3oGA4yZe2reELqioX150fGOjxPGCYAkQaMyKFM98uJt9sP3NGLxafa387OJkyutz7QoHjtdXxId1od7IOGh3e71pKj5XE3FypPb33GWXZYZMVg-mA3Ms9ZtEANa8nCCLef-xcwPYei7xboUTz5YWChvZ0b4yd3HOhLIiv3lZqa37k9ghAc73WeC3xayuKamD0jBx5hl9vruvLXH8M8vmLZZ88lVtMVwYFJNTX5RX-35-39QIPr9rF98vIQ-8YyEEQyrw
+    /get/deeplink/inforequest:
+      title: /get/deeplink/inforequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content46'
+      example:
+        headerReq:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-09-14 11:00:00.056
+          reqBy: 0850669997
+          service: DeeplinkNextInfoService
+          txnRefID: xxxx
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          sofType: PM
+        content:
+          deeplinkToken: xxx
+          transactionToken: xxx
+    Content46:
+      title: Content46
+      required:
+      - deeplinkToken
+      - transactionToken
+      type: object
+      properties:
+        deeplinkToken:
+          type: string
+        transactionToken:
+          type: string
+      example:
+        deeplinkToken: xxx
+        transactionToken: xxx
+    /get/deeplink/info:
+      title: /get/deeplink/info
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content47'
+      example:
+        headerResp:
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqDtm: 2020-09-14 11:00:00.056
+          txnRefID: xxxx
+          service: DeeplinkNextInfoService
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          cid: '1234567890123'
+          otpMobileNo: 0123456789
+          deposit:
+          - accountNo: '3249077772'
+          - accountNo: '3249077773'
+    Content47:
+      title: Content47
+      required:
+      - cid
+      - otpMobileNo
+      - deposit
+      type: object
+      properties:
+        cid:
+          type: string
+        otpMobileNo:
+          type: string
+        deposit:
+          type: array
+          items:
+            $ref: '#/components/schemas/Deposit'
+          description: ''
+      example:
+        cid: '1234567890123'
+        otpMobileNo: 0123456789
+        deposit:
+        - accountNo: '3249077772'
+        - accountNo: '3249077773'
+    Deposit:
+      title: Deposit
+      required:
+      - accountNo
+      type: object
+      properties:
+        accountNo:
+          type: string
+      example:
+        accountNo: '3249077772'
+    /app-to-app-confirmation/v1/deeplink/profile/confirmation-request:
+      title: /app-to-app-confirmation/v1/deeplink/profile/confirmation-request
+      required:
+      - deeplinkToken
+      type: object
+      properties:
+        deeplinkToken:
+          type: string
+      example:
+        deeplinkToken: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJwYW90YW5nIiwiZGVlcGxpbmtJZCI6IjI3Y2FjOTdmLTUxNDEtNDQyZC04NGJlLTYwYjRkMGYxMGY2YS1kZWVwIiwiZXhwIjoxNjA0NjUwMjQwLCJpYXQiOjE2MDQ2NDk5NDAsImlzcyI6IktydW5ndGhhaU5FWFQiLCJwYXJ0bmVyIjoicGFvdGFuZyIsInN1YiI6IkdFVF9QUk9GSUxFX1ZJRVdfQUNDT1VOVCJ9.IUoDOa3OZiDLNYbZK2wewpBSBKOJa5MLG8kW5u2rU1OhnQQNpNojxld2U5D0JWcvkDmgFIZIbeNR1uNyMAG7_G-lVGOFi2AhtHBMEg6XNiT8FIXiWfJdrh603f3V3LEfbvbod8NBeT1qHXmqWKfrVig5H6T31CZYh0L1-fihTDQ
+    /bond/admin/transferrequest:
+      title: /bond/admin/transferrequest
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq4'
+        content:
+          $ref: '#/components/schemas/Content19'
+      example:
+        headerReq:
+          ip: fe80::33:323d:9f13:c1a9%en0,192.168.1.207,fe80::c5e:961a:6412:c49%en2,169.254.23.134,fe80::1c5c:8cff:fe4d:7e23%awdl0,fe80::830a:d8db:732f:f4bd%utun0,fe80::445e:2b5a:8f17:c244%utun1
+          reqBy: 0850669997
+          sofType: ''
+          service: SellBondConfirmService
+          reqID: hAdsJgb6ep9C7uMzt8nc
+          reqChannel: PTIOS
+          reqDtm: 2020-06-06 14:59:29.056
+          cardNo: ''
+        content:
+          uuId: wpOrLHEz8nSbLHZbSqooC8q8cr4GWOUCjjQcCUjYETShf4v0xvEho8HH
+          userId: 0850669997
+          appId: o3NDOoQhnDv5ldVpI3WmRP8bXYhIzuxTimrsd9JSDptPCSCapn9Rd5WK
+          thaiSymbol: SB245A
+          mmWalletId: 006880063916621
+          bondUnit: 100
+          bidPrice: 102
+          mmCode: mm03
+          fromWalletId: '234234'
+          refPricingNo: '202008220002'
+    /bond/sale/secondary-mkt/confirm1:
+      title: /bond/sale/secondary-mkt/confirm1
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp'
+        content:
+          $ref: '#/components/schemas/Content49'
+      example:
+        headerResp:
+          statusCd: 0000
+          statusDesc: SUCCESS
+        content:
+          issuerWalletId: 006880089000624
+          issuerWalletName: PDMOAdminWallet
+          amount: 1000
+          bondUnitAmount: 1000
+          fee: 0
+          referenceCode: c1d936c3-0464-47f4-a993-460d470503a1
+          transactionDateTime: 2020-02-03T11:04:36.91
+    Content49:
+      title: Content49
+      required:
+      - issuerWalletId
+      - issuerWalletName
+      - amount
+      - bondUnitAmount
+      - fee
+      - referenceCode
+      - transactionDateTime
+      type: object
+      properties:
+        issuerWalletId:
+          type: string
+        issuerWalletName:
+          type: string
+        amount:
+          type: integer
+          format: int32
+        bondUnitAmount:
+          type: integer
+          format: int32
+        fee:
+          type: integer
+          format: int32
+        referenceCode:
+          type: string
+        transactionDateTime:
+          type: string
+      example:
+        issuerWalletId: 006880089000624
+        issuerWalletName: PDMOAdminWallet
+        amount: 1000
+        bondUnitAmount: 1000
+        fee: 0
+        referenceCode: c1d936c3-0464-47f4-a993-460d470503a1
+        transactionDateTime: 2020-02-03T11:04:36.91
+    /inquiry/account-detail-request:
+      title: /inquiry/account-detail-request
+      required:
+      - headerReq
+      - content
+      type: object
+      properties:
+        headerReq:
+          $ref: '#/components/schemas/HeaderReq'
+        content:
+          $ref: '#/components/schemas/Content50'
+      example:
+        headerReq:
+          reqID: ''
+          reqChannel: ''
+          reqDtm: ''
+          reqBy: ''
+          service: ''
+          txnRefID: ''
+          ip: ''
+          sofType: ''
+        content:
+          accountList:
+          - accountNo: '6700211034'
+    Content50:
+      title: Content50
+      required:
+      - accountList
+      type: object
+      properties:
+        accountList:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountList'
+          description: ''
+      example:
+        accountList:
+        - accountNo: '6700211034'
+    AccountList:
+      title: AccountList
+      required:
+      - accountNo
+      type: object
+      properties:
+        accountNo:
+          type: string
+      example:
+        accountNo: '6700211034'
+    /inquiry/account-detail:
+      title: /inquiry/account-detail
+      required:
+      - headerResp
+      - content
+      type: object
+      properties:
+        headerResp:
+          $ref: '#/components/schemas/HeaderResp12'
+        content:
+          $ref: '#/components/schemas/Content51'
+      example:
+        headerResp:
+          reqID: ''
+          reqDtm: ''
+          txnRefID: ''
+          service: ''
+          statusCd: 0000
+          statusDesc: Success
+        content:
+          accountList:
+          - accountNo: '650161'
+            thaiName: นาง กวาง กวาง
+            engName: kwang kwang
+            currencyCode: THB
+            payCondition: จ่ายโดย นาง กวาง กวาง เท่านั้น
+            commentOAcct: ''
+            eduLoan: 0
+            prinRenewOpt: 0
+            renewTRAcct: ''
+            intMdtOpt: 0
+            intMdtTRAcct: ''
+            dibursementOpt: 0
+            intTrAcct: ''
+            accountStatus: 0
+            accountType: 2001
+            accountGroup: SAV
+            branchCd: 0
+            lastSalaryPaidDt: ''
+            smsSaleCode: ''
+            arrPurCd: ''
+            perConsumpCd: ''
+            indexCd: SAV001
+            intSpread: ''
+            authLimit: 0
+            balAmt: 1053359.24
+            availBalAmt: 1053359.24
+            maximumBal: 0
+            depositAccountType: ''
+            costCenter: '200000'
+            totLoanBal: 0
+            cifNo: '34134362'
+          - accountNo: '663301'
+            thaiName: นาง ตอง ตอง
+            engName: tong tong
+            currencyCode: THB
+            payCondition: จ่ายโดย นาง ตอง ตอง เท่านั้น
+            commentOAcct: ''
+            eduLoan: 0
+            prinRenewOpt: 0
+            renewTRAcct: ''
+            intMdtOpt: 0
+            intMdtTRAcct: ''
+            dibursementOpt: 0
+            intTrAcct: ''
+            accountStatus: 0
+            accountType: 2001
+            accountGroup: SAV
+            branchCd: 0
+            lastSalaryPaidDt: ''
+            smsSaleCode: ''
+            arrPurCd: ''
+            perConsumpCd: ''
+            indexCd: SAV001
+            intSpread: ''
+            authLimit: 0
+            balAmt: 999700
+            availBalAmt: 999700
+            maximumBal: 0
+            depositAccountType: ''
+            costCenter: '200000'
+            totLoanBal: 0
+            cifNo: '34139462'
+          - accountNo: '641871'
+            thaiName: น.ส. สุวธิดา แก้วคง
+            engName: Suwatida Keawkong
+            currencyCode: THB
+            payCondition: จ่ายโดย น.ส. สุวธิดา แก้วคง เท่านั้น
+            commentOAcct: ''
+            eduLoan: 0
+            prinRenewOpt: 0
+            renewTRAcct: ''
+            intMdtOpt: 0
+            intMdtTRAcct: ''
+            dibursementOpt: 0
+            intTrAcct: ''
+            accountStatus: 0
+            accountType: 2001
+            accountGroup: SAV
+            branchCd: 0
+            lastSalaryPaidDt: ''
+            smsSaleCode: ''
+            arrPurCd: ''
+            perConsumpCd: ''
+            indexCd: SAV001
+            intSpread: ''
+            authLimit: 0
+            balAmt: 2001717.77
+            availBalAmt: 2001717.77
+            maximumBal: 0
+            depositAccountType: ''
+            costCenter: '200000'
+            totLoanBal: 0
+            cifNo: '34118933'
+    Content51:
+      title: Content51
+      required:
+      - accountList
+      type: object
+      properties:
+        accountList:
+          type: array
+          items:
+            $ref: '#/components/schemas/AccountList1'
+          description: ''
+      example:
+        accountList:
+        - accountNo: '650161'
+          thaiName: นาง กวาง กวาง
+          engName: kwang kwang
+          currencyCode: THB
+          payCondition: จ่ายโดย นาง กวาง กวาง เท่านั้น
+          commentOAcct: ''
+          eduLoan: 0
+          prinRenewOpt: 0
+          renewTRAcct: ''
+          intMdtOpt: 0
+          intMdtTRAcct: ''
+          dibursementOpt: 0
+          intTrAcct: ''
+          accountStatus: 0
+          accountType: 2001
+          accountGroup: SAV
+          branchCd: 0
+          lastSalaryPaidDt: ''
+          smsSaleCode: ''
+          arrPurCd: ''
+          perConsumpCd: ''
+          indexCd: SAV001
+          intSpread: ''
+          authLimit: 0
+          balAmt: 1053359.24
+          availBalAmt: 1053359.24
+          maximumBal: 0
+          depositAccountType: ''
+          costCenter: '200000'
+          totLoanBal: 0
+          cifNo: '34134362'
+        - accountNo: '663301'
+          thaiName: นาง ตอง ตอง
+          engName: tong tong
+          currencyCode: THB
+          payCondition: จ่ายโดย นาง ตอง ตอง เท่านั้น
+          commentOAcct: ''
+          eduLoan: 0
+          prinRenewOpt: 0
+          renewTRAcct: ''
+          intMdtOpt: 0
+          intMdtTRAcct: ''
+          dibursementOpt: 0
+          intTrAcct: ''
+          accountStatus: 0
+          accountType: 2001
+          accountGroup: SAV
+          branchCd: 0
+          lastSalaryPaidDt: ''
+          smsSaleCode: ''
+          arrPurCd: ''
+          perConsumpCd: ''
+          indexCd: SAV001
+          intSpread: ''
+          authLimit: 0
+          balAmt: 999700
+          availBalAmt: 999700
+          maximumBal: 0
+          depositAccountType: ''
+          costCenter: '200000'
+          totLoanBal: 0
+          cifNo: '34139462'
+        - accountNo: '641871'
+          thaiName: น.ส. สุวธิดา แก้วคง
+          engName: Suwatida Keawkong
+          currencyCode: THB
+          payCondition: จ่ายโดย น.ส. สุวธิดา แก้วคง เท่านั้น
+          commentOAcct: ''
+          eduLoan: 0
+          prinRenewOpt: 0
+          renewTRAcct: ''
+          intMdtOpt: 0
+          intMdtTRAcct: ''
+          dibursementOpt: 0
+          intTrAcct: ''
+          accountStatus: 0
+          accountType: 2001
+          accountGroup: SAV
+          branchCd: 0
+          lastSalaryPaidDt: ''
+          smsSaleCode: ''
+          arrPurCd: ''
+          perConsumpCd: ''
+          indexCd: SAV001
+          intSpread: ''
+          authLimit: 0
+          balAmt: 2001717.77
+          availBalAmt: 2001717.77
+          maximumBal: 0
+          depositAccountType: ''
+          costCenter: '200000'
+          totLoanBal: 0
+          cifNo: '34118933'
+    AccountList1:
+      title: AccountList1
+      required:
+      - accountNo
+      - thaiName
+      - engName
+      - currencyCode
+      - payCondition
+      - commentOAcct
+      - eduLoan
+      - prinRenewOpt
+      - renewTRAcct
+      - intMdtOpt
+      - intMdtTRAcct
+      - dibursementOpt
+      - intTrAcct
+      - accountStatus
+      - accountType
+      - accountGroup
+      - branchCd
+      - lastSalaryPaidDt
+      - smsSaleCode
+      - arrPurCd
+      - perConsumpCd
+      - indexCd
+      - intSpread
+      - authLimit
+      - balAmt
+      - availBalAmt
+      - maximumBal
+      - depositAccountType
+      - costCenter
+      - totLoanBal
+      - cifNo
+      type: object
+      properties:
+        accountNo:
+          type: string
+        thaiName:
+          type: string
+        engName:
+          type: string
+        currencyCode:
+          type: string
+        payCondition:
+          type: string
+        commentOAcct:
+          type: string
+        eduLoan:
+          type: integer
+          format: int32
+        prinRenewOpt:
+          type: integer
+          format: int32
+        renewTRAcct:
+          type: string
+        intMdtOpt:
+          type: integer
+          format: int32
+        intMdtTRAcct:
+          type: string
+        dibursementOpt:
+          type: integer
+          format: int32
+        intTrAcct:
+          type: string
+        accountStatus:
+          type: integer
+          format: int32
+        accountType:
+          type: integer
+          format: int32
+        accountGroup:
+          type: string
+        branchCd:
+          type: integer
+          format: int32
+        lastSalaryPaidDt:
+          type: string
+        smsSaleCode:
+          type: string
+        arrPurCd:
+          type: string
+        perConsumpCd:
+          type: string
+        indexCd:
+          type: string
+        intSpread:
+          type: string
+        authLimit:
+          type: number
+        balAmt:
+          type: number
+        availBalAmt:
+          type: number
+        maximumBal:
+          type: number
+        depositAccountType:
+          type: string
+        costCenter:
+          type: string
+        totLoanBal:
+          type: number
+        cifNo:
+          type: string
+      example:
+        accountNo: '650161'
+        thaiName: นาง กวาง กวาง
+        engName: kwang kwang
+        currencyCode: THB
+        payCondition: จ่ายโดย นาง กวาง กวาง เท่านั้น
+        commentOAcct: ''
+        eduLoan: 0
+        prinRenewOpt: 0
+        renewTRAcct: ''
+        intMdtOpt: 0
+        intMdtTRAcct: ''
+        dibursementOpt: 0
+        intTrAcct: ''
+        accountStatus: 0
+        accountType: 2001
+        accountGroup: SAV
+        branchCd: 0
+        lastSalaryPaidDt: ''
+        smsSaleCode: ''
+        arrPurCd: ''
+        perConsumpCd: ''
+        indexCd: SAV001
+        intSpread: ''
+        authLimit: 0
+        balAmt: 1053359.24
+        availBalAmt: 1053359.24
+        maximumBal: 0
+        depositAccountType: ''
+        costCenter: '200000'
+        totLoanBal: 0
+        cifNo: '34134362'
+    /tfr-adt/api/v1/transferNonOfp/deposit-Request:
+      title: /tfr-adt/api/v1/transferNonOfp/deposit-Request
+      required:
+      - fromAcctID
+      - fromAcctName
+      - fromAcctType
+      - toAnyIdType
+      - toAnyId
+      - toDisplayName
+      - toAcctName
+      - toAcctID
+      - toWalletID
+      - bankCd
+      - switchFeeAmt
+      - toBankFeeAmt
+      - customerFeeAmt
+      - retrievalRefNo
+      - availBalAmt
+      - amount
+      - ledgerAmt
+      - productCategory
+      - debitTrnTyp
+      - creditMaxBal
+      - glIndicator
+      - reqDtm
+      - effDt
+      - locationCD
+      - termID
+      - panID
+      - transTime
+      - transType
+      - termType
+      - channelID
+      - overrideTransCode
+      type: object
+      properties:
+        fromAcctID:
+          type: string
+        fromAcctName:
+          type: string
+        fromAcctType:
+          type: string
+        toAnyIdType:
+          type: string
+        toAnyId:
+          type: string
+        toDisplayName:
+          type: string
+        toAcctName:
+          type: string
+        toAcctID:
+          type: string
+        toWalletID:
+          type: string
+        bankCd:
+          type: string
+        switchFeeAmt:
+          type: string
+        toBankFeeAmt:
+          type: string
+        customerFeeAmt:
+          type: string
+        retrievalRefNo:
+          type: string
+        availBalAmt:
+          type: string
+        amount:
+          type: string
+        ledgerAmt:
+          type: string
+        productCategory:
+          type: string
+        debitTrnTyp:
+          type: string
+        creditMaxBal:
+          type: string
+        glIndicator:
+          type: string
+        reqDtm:
+          type: string
+        effDt:
+          type: string
+        locationCD:
+          type: string
+        termID:
+          type: string
+        panID:
+          type: string
+        transTime:
+          type: string
+        transType:
+          type: string
+        termType:
+          type: string
+        channelID:
+          type: string
+        overrideTransCode:
+          type: string
+      example:
+        fromAcctID: '16508105'
+        fromAcctName: MM Wallet KTB2
+        fromAcctType: ''
+        toAnyIdType: ''
+        toAnyId: ''
+        toDisplayName: MM Wallet KTB2
+        toAcctName: MM Wallet KTB2
+        toAcctID: ''
+        toWalletID: 006880090311754
+        bankCd: ''
+        switchFeeAmt: ''
+        toBankFeeAmt: ''
+        customerFeeAmt: '0'
+        retrievalRefNo: '771673737284'
+        availBalAmt: '19922685.18'
+        amount: '248498.82'
+        ledgerAmt: '-77314.82'
+        productCategory: DDA
+        debitTrnTyp: ''
+        creditMaxBal: ''
+        glIndicator: '16508105'
+        reqDtm: 2020-12-02T10:33:39.620241151Z
+        effDt: '20201202'
+        locationCD: '1'
+        termID: '80'
+        panID: ''
+        transTime: 10:33:39
+        transType: '12'
+        termType: '12'
+        channelID: PT
+        overrideTransCode: BD5800000419
+    /tfr-adt/api/v1/lookupNonToOfp-Request:
+      title: /tfr-adt/api/v1/lookupNonToOfp-Request
+      required:
+      - fromBankCode
+      - fromAcctID
+      - toWalletID
+      - amount
+      - reqDtm
+      - retrievalRefNo
+      - glIndicator
+      type: object
+      properties:
+        fromBankCode:
+          type: string
+        fromAcctID:
+          type: string
+        toWalletID:
+          type: string
+        amount:
+          type: string
+        reqDtm:
+          type: string
+        retrievalRefNo:
+          type: string
+        glIndicator:
+          type: string
+      example:
+        fromBankCode: ''
+        fromAcctID: '16508105'
+        toWalletID: 006880090311754
+        amount: '248498.82'
+        reqDtm: 2020-12-02T10:33:37.401795058Z
+        retrievalRefNo: '771673737284'
+        glIndicator: '16508105'
+    /internal/v1/financial/transfer-pdmoadmin/od/transfer-request:
+      title: /internal/v1/financial/transfer-pdmoadmin/od/transfer-request
+      required:
+      - mmWalletID
+      - transferInAccountType
+      - transferInBankCode
+      - transferInAccountNo
+      - transferOutAccountType
+      - transferOutBankCode
+      - transferOutAccountNo
+      type: object
+      properties:
+        mmWalletID:
+          type: string
+        transferInAccountType:
+          type: string
+        transferInBankCode:
+          type: string
+        transferInAccountNo:
+          type: string
+        transferOutAccountType:
+          type: string
+        transferOutBankCode:
+          type: string
+        transferOutAccountNo:
+          type: string
+      example:
+        mmWalletID: 006880090311754
+        transferInAccountType: GL
+        transferInBankCode: 006
+        transferInAccountNo: '16508105'
+        transferOutAccountType: GL
+        transferOutBankCode: 006
+        transferOutAccountNo: '16508105'
+    /internal/sit/financial/transfer-pdmoadmin/transferAdminWalletToCasa-Request:
+      title: /internal/sit/financial/transfer-pdmoadmin/transferAdminWalletToCasa-Request
+      required:
+      - requestId
+      - amount
+      - transferType
+      type: object
+      properties:
+        requestId:
+          type: string
+        amount:
+          type: number
+        transferType:
+          type: string
+      example:
+        requestId: '202012016164358'
+        amount: 1343.16
+        transferType: WALLET_CASA
+    /EwalletWebService/InquiryEwalletByWalletIDRequest:
+      title: /EwalletWebService/InquiryEwalletByWalletIDRequest
+      required:
+      - inquiryEwalletByWalletIDReqHeader
+      - walletID
+      - inqrecvAccount
+      - termType
+      type: object
+      properties:
+        inquiryEwalletByWalletIDReqHeader:
+          $ref: '#/components/schemas/InquiryEwalletByWalletIDReqHeader'
+        walletID:
+          type: string
+        inqrecvAccount:
+          type: string
+        termType:
+          type: string
+      example:
+        inquiryEwalletByWalletIDReqHeader:
+          channelId: BD
+          refId: 337-6339dfff-d80a-4c19-9f5f-325c2d1f3500
+          requestDate: '20201202'
+          requestTime: 10:55:23
+        walletID: 006880048745012
+        inqrecvAccount: ''
+        termType: ''
+    InquiryEwalletByWalletIDReqHeader:
+      title: InquiryEwalletByWalletIDReqHeader
+      required:
+      - channelId
+      - refId
+      - requestDate
+      - requestTime
+      type: object
+      properties:
+        channelId:
+          type: string
+        refId:
+          type: string
+        requestDate:
+          type: string
+        requestTime:
+          type: string
+      example:
+        channelId: BD
+        refId: 337-6339dfff-d80a-4c19-9f5f-325c2d1f3500
+        requestDate: '20201202'
+        requestTime: 10:55:23
+  securitySchemes:
+    httpBearer:
+      type: http
+      scheme: bearer
+security:
+- httpBearer: []
+tags:
+- name: Portfolio
+- name: Info
+- name: Buying/Sale
+- name: dipchip
+- name: Risk
+- name: AutoPay
+- name: Fatca
+- name: Get-MobileNumber-bond
+- name: Upgrade
+- name: deeplink
+- name: AdminTRF
+- name: Acct-information
+- name: Transfer adapter
+- name: EMS
